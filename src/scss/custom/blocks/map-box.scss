@@ -1,0 +1,25 @@
+.map-box {
+    background: url('@/img/map_1.png') top center no-repeat;
+    background-size: contain;
+    max-width: rfs-value(900px);
+    min-height: calc((100vw - var(--#{$prefix}gutter-x)) / 1.775);
+
+    &__stamp {
+        padding: $spacer * 1;
+        border: var(--#{$prefix}border-width) solid $primary;
+        @include border-radius(var(--#{$prefix}border-radius-sm));
+        background: $white;
+        display: inline-block;
+        line-height: $line-height-sm;
+        transform: scale(0.625);
+        transform-origin: 0 0;
+    }
+
+    @include media-breakpoint-up(lg) {
+        min-height: rfs-value(507px);
+        &__stamp {
+            padding: $spacer * 1.25;
+            transform: none;
+        }
+    }
+}

@@ -1,0 +1,84 @@
+.player-preview-carousel {
+    gap: $spacer * 1.25;
+
+    @include media-breakpoint-down(lg) {
+        gap: $spacer * 0.75;
+
+        .player-preview {
+            width: rfs-value(82vw);
+        }
+
+        .play-btn {
+            transform: scale(0.5333);
+        }
+    }
+}
+.player-preview {
+    --#{$c-prefix}pp-bg: #{$white-dark};
+    --#{$c-prefix}pp-pad-y: #{$spacer * 0.25};
+    --#{$c-prefix}pp-pad-x: #{$spacer * 0.75};
+
+    background: var(--#{$c-prefix}pp-bg);
+    @include border-top-radius();
+    @include border-bottom-radius($spacer * 1.25);
+
+    &__nav {
+        position: relative;
+        overflow: hidden;
+        @include border-radius(var(--#{$prefix}border-radius));
+
+        &::before {
+            background: rgba(18, 18, 18, 0.5);
+            opacity: 0.5;
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+        .play-btn {
+            position: absolute;
+            left: calc(50% - var(--#{$c-prefix}play-btn-size) * 0.5);
+            top: calc(50% - var(--#{$c-prefix}play-btn-size) * 0.5);
+        }
+    }
+
+    &__desc {
+        margin: var(--#{$c-prefix}pp-pad-y) var(--#{$c-prefix}pp-pad-x);
+    }
+
+    &__time {
+        margin: $spacer * 0.5 0 $spacer;
+    }
+
+    @include media-breakpoint-up(lg) {
+        --#{$c-prefix}pp-bg: transparent;
+        --#{$c-prefix}pp-pad-y: #{$spacer * 0.25};
+        --#{$c-prefix}pp-pad-x: #{$spacer * 0.75};
+
+        @include border-top-radius(var(--#{$prefix}border-radius-sm));
+
+        &__nav {
+            @include border-radius(var(--#{$prefix}border-radius-sm));
+        }
+
+        &__time {
+            margin: 0;
+        }
+    }
+}
+
+.play-btn {
+    width: var(--#{$c-prefix}play-btn-size);
+    height: var(--#{$c-prefix}play-btn-size);
+    border-radius: 50%;
+    background: $white url('@/img/polygon.svg') calc(50% + 3px) 50% no-repeat;
+    cursor: pointer;
+}

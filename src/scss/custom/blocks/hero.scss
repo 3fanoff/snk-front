@@ -1,0 +1,44 @@
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+
+    &__title {
+        span {
+            color: $primary;
+        }
+    }
+
+    &__img {
+        width: 100%;
+        max-width: rfs-value(526px);
+        height: auto;
+    }
+
+    &__nav {
+        position: absolute;
+        z-index: 10;
+        bottom: $spacer * 0.5;
+        width: 100%;
+        justify-content: center;
+    }
+
+    @include media-breakpoint-up(lg) {
+        --#{$c-prefix}slide-img-height: #{rfs-value(509px)};
+
+        align-items: center;
+        flex-direction: row;
+        max-height: var(--#{$c-prefix}slide-img-height);
+
+        &__title {
+        }
+
+        &__img {
+            float: right;
+            width: auto;
+            //max-width: 100%;
+            max-height: var(--#{$c-prefix}slide-img-height);
+        }
+    }
+}

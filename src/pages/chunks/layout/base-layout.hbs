@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        {{> layout/head-content }}
+        <title>{{title}}</title>
+    </head>
+    <body class="layout">
+        <header class="layout__header {{#unless slider}}layout__header--nohero _pb-1 pb-lg-4{{/unless}}">
+            {{> header-top }}
+            {{#if slider}}
+                {{> hero}}
+            {{/if}}
+        </header>
+
+        <main class="layout__main">
+            {{> @partial-block }}
+        </main>
+
+        <footer class="layout__footer py-6">
+            {{> footer }}
+        </footer>
+
+        {{> modals }}
+    </body>
+</html>

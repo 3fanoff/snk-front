@@ -1,0 +1,19 @@
+.list-iconed {
+    @at-root ul#{&} {
+        padding-left: 0;
+    }
+
+    li {
+        display: flex;
+        align-items: center;
+        gap: $spacer * 1.25;
+        margin-top: $spacer * 0.75;
+        margin-bottom: $spacer * 0.75;
+    }
+
+    li::before {
+        @extend [class^='i-'];
+        content: $i-minus;
+        color: $white;
+    }
+}

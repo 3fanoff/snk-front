@@ -1,0 +1,26 @@
+.info-body {
+    &--error &__i {
+        color: $danger;
+    }
+    &__i {
+        color: $success;
+        font-size: $font-size-base * 3;
+    }
+    &__title {
+        font-size: $h2-lg-font-size;
+        font-weight: $font-weight-medium;
+    }
+    &__contacts {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: start;
+        padding: 0 rfs-value(4px);
+
+        .divider {
+            width: 1px;
+            height: rfs-value(26px);
+            background: $middle;
+        }
+    }
+}

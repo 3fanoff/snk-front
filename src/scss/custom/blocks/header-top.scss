@@ -1,0 +1,30 @@
+.header-top {
+    &__logo {
+        height: #{divide(55, 16)}rem;
+
+        &-sub {
+            font-size: #{$font-size-sm};
+            line-height: #{$line-height-sm};
+            span {
+                font-size: #{divide(15, 16)}rem;
+                font-weight: 600;
+            }
+        }
+    }
+
+    &__contacts {
+    }
+
+    &__burger {
+        border: 0;
+        color: var(--#{$prefix}body-color);
+        background: transparent;
+    }
+
+    @include media-breakpoint-up(lg) {
+        &__logo {
+            height: 4.0625rem; //65px
+            margin-left: 1.6875rem;
+        }
+    }
+}

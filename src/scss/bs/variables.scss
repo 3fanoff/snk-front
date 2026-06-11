@@ -1,0 +1,219 @@
+$primary: #3879ed;
+$secondary: #7ba9ff;
+$danger: #eb5757;
+$success: #198754;
+//$info:          $cyan;
+//$warning:       $yellow;
+$light: #ececec;
+$middle: #a8a8a8;
+$dark: #676767;
+$white-dark: #f5f5f5;
+$white: #fff;
+
+$theme-colors: (
+    'primary': $primary,
+    'secondary': $secondary,
+    //'danger': $danger,
+    'dark': $dark,
+    //'light': $light,
+    'white': $white,
+);
+
+$enable-dark-mode: false;
+$enable-cssgrid: true;
+$enable-rfs: false;
+
+$variable-prefix: pvp-;
+$prefix: $variable-prefix;
+
+$spacer: 1rem;
+$spacers: (
+    0: 0,
+    1: $spacer * 0.75,
+    2: $spacer,
+    3: $spacer * 1.25,
+    4: $spacer * 1.5,
+    5: $spacer * 1.875,
+    6: $spacer * 2.5,
+);
+
+$body-color: #212121;
+
+$grid-breakpoints: (
+    xs: 0,
+    //sm: 40rem, // 640px
+    //md: 48rem, // 768px
+    lg: 1024px,
+    // 1024px
+    //xl: 1280px,
+    // 1280px
+     //xxl: 96rem
+);
+
+$container-max-widths: (
+    //sm: 640px,
+    //md: 768px,
+    lg: 990px,
+    xl: 1140px //xxl: 82.5rem,
+);
+
+$grid-columns: 12;
+$grid-gutter-width: 1.5rem;
+$grid-row-columns: 6;
+
+$border-width: 0.0625rem;
+//$border-widths:               null;
+$border-color: $light;
+$border-color-translucent: transparent;
+
+$border-radius: 0.75rem;
+$border-radius-sm: 1.25rem;
+
+$font-family-sans-serif:
+    'Inter',
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    'Helvetica Neue',
+    'Noto Sans',
+    'Liberation Sans',
+    Arial,
+    sans-serif,
+    'Apple Color Emoji',
+    'Segoe UI Emoji',
+    'Segoe UI Symbol',
+    'Noto Color Emoji';
+$font-size-root: null;
+$font-size-base: 1rem;
+$font-size-sm: 0.75rem;
+$font-size-lg: $font-size-base * 1.25;
+$font-size-md: calc($font-size-base - 1px);
+
+$font-sizes: (
+    1: $font-size-base * 0.75,
+    // 12
+    2: $font-size-base,
+    // 16
+    3: $font-size-base * 1.375,
+    // 22
+    4: $font-size-md,
+    // 15
+    5: $font-size-base * 1.125,
+    // 18
+    6: $font-size-base * 1.25, // 20
+);
+
+$font-weight-normal: 400;
+
+$line-height-base: 1.4;
+$line-height-sm: 1.25;
+$line-height-lg: 2;
+
+$h1-font-size: $font-size-base * 1.5; //$font-size-base * 2;
+$h2-font-size: $font-size-base * 1.375; //$font-size-base * 1.75;
+$h3-font-size: $font-size-base * 1.25; //$font-size-base * 1.375;
+$h4-font-size: $font-size-base * 1.0625; //$font-size-base * 1.125;
+$h5-font-size: $font-size-base;
+$h6-font-size: $font-size-base;
+
+$headings-margin-bottom: 0.75rem;
+$headings-line-height: 1.25;
+$headings-font-weight: 600;
+
+$input-padding-y: 0.75rem;
+$input-padding-x: 1.5rem;
+$input-line-height: 1.625;
+$input-font-size: $font-size-base;
+//$input-border-radius: 0.75rem;
+$input-placeholder-color: rgba(128, 128, 128, 0.55);
+
+$btn-padding-y: 0.9375rem;
+$btn-padding-x: 1.25rem;
+$btn-font-size: $font-size-base;
+$btn-line-height: 1.25;
+$btn-white-space: nowrap;
+$btn-disabled-opacity: 1;
+
+$btn-close-width: 2rem;
+$btn-close-padding-x: 0;
+$btn-close-color: $body-color;
+$btn-close-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$btn-close-color}'><path d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414'/></svg>");
+$btn-close-bg: url("data:image/svg+xml,<svg width='32' height='32' viewBox='0 0 32 32' fill='#{$btn-close-color}' xmlns='http://www.w3.org/2000/svg'><path d='M25 7L7 25' stroke='#212121' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/><path d='M25 25L7 7' stroke='#{$btn-close-color}' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+
+$icon-link-gap: 0.625rem;
+
+$form-feedback-icon-valid: none;
+$form-feedback-icon-invalid: none;
+// scss-docs-end form-feedback-variables
+
+/*$list-group-bg:                     none;
+$list-group-border-width:           0;
+$list-group-item-padding-y:         0.125rem;
+$list-group-item-padding-x:         0;*/
+
+$navbar-padding-y: 0.25rem;
+$navbar-padding-x: 0.25rem;
+$navbar-nav-link-padding-x: 0;
+$navbar-light-active-color: $primary;
+
+$nav-link-padding-y: 0;
+$nav-link-padding-x: 1.25rem;
+
+$nav-tabs-border-color: var(--#{$prefix}border-color);
+$nav-tabs-border-width: 2px;
+$nav-tabs-border-radius: 0;
+$nav-tabs-link-hover-border-color: transparent transparent $nav-tabs-border-color;
+$nav-tabs-link-active-color: var(--#{$prefix}primary);
+$nav-tabs-link-active-bg: var(--#{$prefix}body-bg);
+$nav-tabs-link-active-border-color: transparent transparent $primary;
+
+$card-spacer-y: 0.75rem;
+$card-spacer-x: 0.75rem;
+$card-title-spacer-y: $card-spacer-y;
+//$card-border-width:  0.0625rem;
+$card-border-radius: var(--#{$prefix}border-radius-sm);
+$card-bg: $white-dark;
+$card-cap-padding-y: 0;
+$card-cap-padding-x: 0;
+$card-cap-bg: none;
+
+$pagination-margin-start: none;
+$pagination-border-radius: $spacer * 0.5;
+$pagination-font-size: $font-size-sm;
+$pagination-padding-y: 0;
+$pagination-padding-x: 0;
+$pagination-color: $body-color;
+
+$accordion-body-padding-y: $spacer * 1.25;
+$accordion-body-padding-x: $spacer * 1.25;
+$accordion-button-padding-y: $spacer * 1.5;
+$accordion-button-padding-x: $spacer * 1.25;
+$accordion-button-active-color: $white;
+$accordion-button-icon: none;
+$accordion-button-active-icon: none;
+$accordion-icon-transform: none;
+$accordion-icon-width: auto;
+
+$badge-padding-y: 0.25rem;
+$badge-padding-x: 0.5rem;
+$badge-font-size: $font-size-base;
+$badge-font-weight: $font-weight-normal;
+
+$carousel-control-width: 3rem;
+$carousel-control-icon-width: 3rem;
+
+$modal-inner-padding: #{divide(60, 16)}rem;
+$modal-header-padding-y: #{divide(60, 16)}rem;
+$modal-header-padding-x: #{divide(60, 16)}rem;
+$modal-content-border-width: 0;
+$modal-content-border-radius: var(--#{$prefix}border-radius);
+$modal-md: 520px;
+$modal-dialog-margin: 0;
+$modal-backdrop-bg: #121212;
+//$modal-dialog-margin-y-sm-up:       0;
+
+$breadcrumb-active-color: $primary;
+$breadcrumb-divider-color: $middle;
+$breadcrumb-font-size: $font-size-sm;
+$breadcrumb-margin-bottom: 0;

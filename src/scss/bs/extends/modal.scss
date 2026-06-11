@@ -1,0 +1,18 @@
+@import 'bootstrap/scss/modal';
+
+.modal-body + .modal-footer,
+.modal-header + .modal-body {
+    padding-top: 0;
+}
+
+.modal-footer {
+    padding: var(--#{$prefix}modal-padding);
+}
+
+.modal-header {
+    padding-bottom: 0;
+    .btn-close {
+        margin-right: 0;
+        padding: 0;
+    }
+}

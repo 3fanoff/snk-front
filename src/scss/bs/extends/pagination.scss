@@ -1,0 +1,15 @@
+@import 'bootstrap/scss/pagination';
+
+.pagination {
+    gap: $spacer * 0.75;
+}
+
+.page-link {
+    width: 2rem;
+    height: 2rem;
+    line-height: 1;
+    //text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

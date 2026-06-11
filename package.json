@@ -1,0 +1,38 @@
+{
+  "name": "pvpsnk",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "format": "prettier --write \"src/**/*.js\" \"src/**/*.scss\"",
+    "build": "webpack --mode=production",
+    "dev": "webpack --mode=development",
+    "start": "webpack serve --mode=development",
+    "watch": "webpack --watch --mode=development"
+  },
+  "author": "Michael Trifanov",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@babel/core": "^7.28.6",
+    "@babel/plugin-transform-runtime": "^7.28.5",
+    "@babel/preset-env": "^7.28.6",
+    "babel-loader": "^10.0.0",
+    "css-loader": "^7.1.2",
+    "handlebars": "^4.7.9",
+    "handlebars-loader": "^1.7.3",
+    "html-loader": "^5.1.0",
+    "html-webpack-plugin": "^5.6.7",
+    "prettier": "^3.8.3",
+    "sass": "^1.78.0",
+    "sass-loader": "^12.2.0",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.104.1",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.3"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.28.6",
+    "bootstrap": "^5.3.8",
+    "core-js": "^3.47.0"
+  }
+}

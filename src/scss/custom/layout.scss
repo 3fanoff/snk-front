@@ -1,0 +1,90 @@
+body,
+html {
+    height: 100%;
+}
+.layout {
+    background: $white;
+    display: flex;
+    flex-direction: column;
+
+    &__header {
+        flex: 0 0 auto;
+
+        background: url('@/img/bg_top.png') center bottom no-repeat;
+        background-size: cover;
+
+        &--nohero {
+            background-image: none;
+            background-color: #{$light};
+        }
+    }
+
+    &__footer {
+        flex: 0 0 auto;
+        background: url('@/img/bg_bottom_mob.png') center top no-repeat;
+        background-size: cover;
+    }
+
+    &__main {
+        flex: 1 0 auto;
+        overflow-x: hidden;
+    }
+
+    &-title {
+        text-align: center;
+        margin-bottom: rfs-value(12px);
+        span {
+            color: $primary;
+        }
+        + :not(.layout-subtitle) {
+            margin-top: var(--#{$c-prefix}title-bottom);
+        }
+    }
+
+    &-subtitle {
+        text-align: center;
+        max-width: rfs-value(500px);
+        margin: 0 auto var(--#{$c-prefix}title-bottom);
+    }
+
+    &-container {
+        --#{$prefix}gutter-x: #{$spacer * 2.5};
+        --#{$prefix}gutter-y: #{$spacer * 2.5};
+
+        &:first-of-type {
+            margin-top: var(--#{$c-prefix}cont-top-first);
+        }
+        margin-bottom: var(--#{$c-prefix}cont-bottom);
+    }
+
+    @include media-breakpoint-up(lg) {
+        &__header {
+            background-position-y: top;
+            background-size: auto;
+
+            &--nohero {
+                background-image: url('@/img/bg_top.png');
+                background-color: initial;
+            }
+        }
+
+        &__footer {
+            background: url('@/img/bg_bottom.png') center top repeat-y;
+            background-size: auto;
+        }
+
+        &-title {
+            @at-root h1#{&} {
+                font-size: $h2-lg-font-size;
+            }
+            br {
+                display: none;
+            }
+        }
+
+        &-container {
+            --#{$prefix}gutter-x: 0;
+            --#{$prefix}gutter-y: 0;
+        }
+    }
+}

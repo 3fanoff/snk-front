@@ -1,0 +1,66 @@
+.accordion {
+    --#{$c-prefix}accordion-item-margin-y: #{$spacer * 0.5};
+    --#{$c-prefix}accordion-font-size: #{$font-size-md};
+
+    @include media-breakpoint-up(lg) {
+        --#{$c-prefix}accordion-item-margin-y: #{$spacer};
+        --#{$c-prefix}accordion-font-size: #{$font-size-base};
+
+        --#{$prefix}accordion-btn-padding-y: #{rfs-value(32px)};
+        --#{$prefix}accordion-btn-padding-x: #{rfs-value(40px)};
+        --#{$prefix}accordion-body-padding-y: #{rfs-value(20px)};
+        --#{$prefix}accordion-body-padding-x: #{rfs-value(40px)};
+    }
+}
+
+.accordion-item {
+    border: 0 solid;
+    margin: var(--#{$c-prefix}accordion-item-margin-y) 0;
+}
+
+.accordion-button {
+    --#{$c-prefix}icon-color: #{$white};
+    --#{$c-prefix}icon-size: 1.25rem;
+
+    @include border-radius(var(--#{$prefix}border-radius));
+    font-size: var(--#{$c-prefix}accordion-font-size);
+
+    &::after {
+        @extend [class^='i-'];
+        content: $i-plus;
+    }
+
+    @at-root %accordion-button-holder,
+        &::before {
+        content: attr(data-count);
+        display: block;
+        min-width: rfs-value(30px);
+        color: $secondary;
+        font-size: $font-size-base;
+    }
+
+    &:not(.collapsed) {
+        &::after {
+            content: $i-minus;
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        @include border-radius(var(--#{$prefix}border-radius-sm));
+    }
+}
+
+.accordion-body {
+    font-size: var(--#{$c-prefix}accordion-font-size);
+    display: flex;
+    &::before {
+        display: none;
+        @extend %accordion-button-holder;
+    }
+
+    @include media-breakpoint-up(lg) {
+        &::before {
+            display: block;
+        }
+    }
+}

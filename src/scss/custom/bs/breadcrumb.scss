@@ -1,0 +1,21 @@
+.breadcrumb {
+    --#{$prefix}breadcrumb-divider: #{$i-right};
+    --#{$prefix}link-color-rgb: #{to-rgb($middle)};
+    --#{$c-prefix}icon-size: 1em;
+
+    &--dark {
+        --#{$prefix}breadcrumb-divider-color: #{$dark};
+        --#{$prefix}link-color-rgb: #{to-rgb($dark)};
+    }
+}
+.breadcrumb-item {
+    display: flex;
+    align-items: center;
+    &::before {
+        @extend [class^='i-'];
+    }
+
+    a {
+        text-decoration: none;
+    }
+}

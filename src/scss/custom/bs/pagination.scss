@@ -1,0 +1,13 @@
+.page-link-i {
+    --#{$c-prefix}icon-color: #{$body-color};
+    --#{$c-prefix}icon-size: 0.75rem;
+}
+
+.page-div {
+    @extend .page-link;
+    border: 0 solid;
+
+    &:hover {
+        background: none;
+    }
+}

@@ -1,0 +1,57 @@
+<div class="container g-6 g-lg-0 py-1 pt-lg-4 pb-lg-0">
+    <div class="header-top d-flex d-jc-between d-ai-center -py-1 -py-lg-4 -pb-lg-0">
+        <div class="header-top__logo d-flex">
+            <a href="/" class="d-none d-lg-block"><img src="../../img/logo.png" width="83" height="75" alt="logo"></a>
+            <a href="/" class="d-lg-none"><img src="../../img/logo.png" width="55" height="50" alt="logo"></a>
+            <div class="header-top__logo-sub d-lg-none ms-1"><span class="color-primary">ООО&nbsp;«ПВП СНК»</span><br>Приборы разрушающего<br>и неразрушающего контроля</div>
+        </div>
+        <div class="header-top__contacts d-none d-lg-flex gap-6">
+            <div class="contact-box contact-box--iconed">
+                <span class="i-location contact-box__icon"></span>
+                <div class="contact-box__head">Россия, Москва</div>
+                <div class="contact-box__sub">Нижняя Сыромятническая 10, с12</div>
+            </div>
+            <div class="contact-box contact-box--iconed">
+                <span class="i-phone contact-box__icon"></span>
+                <div class="contact-box__head">+7 (495) 640-57-74</div>
+                <div class="contact-box__sub">Многоканальный</div>
+            </div>
+            <div class="contact-box contact-box--iconed">
+                <span class="i-phone contact-box__icon"></span>
+                <div class="contact-box__head">8-800-777-07-04</div>
+                <div class="contact-box__sub">Бесплатно по&nbsp;России</div>
+            </div>
+        </div>
+        <div class="header-top__btn d-none d-lg-block">
+            <button type="button" class="btn btn-outline-primary"
+                    data-bs-target="#modal-callback" data-bs-toggle="modal">Перезвоните мне</button>
+        </div>
+        <button class="header-top__burger i-list d-lg-none"></button>
+    </div>
+    <nav class="navbar navbar-expand-lg bg-white rounded-2 d-none d-lg-flex">
+        <div class="container-fluid g-0">
+            <a class="btn btn-primary btn-icon" href="#"><i class="i-list-dashes"></i>Каталог</a>
+            <ul class="navbar-nav gap-6">
+                <li class="nav-item">
+                    <a class="nav-link{{#ifeq menutitle 'Главная'}} active{{/ifeq}}" aria-current="page" href="#">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link{{#ifeq menutitle 'О компании'}} active{{/ifeq}}" href="#">О компании</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link{{#ifeq menutitle 'Услуги'}} active{{/ifeq}}" href="#">Услуги</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link{{#ifeq menutitle 'Сервис'}} active{{/ifeq}}" href="#">Сервис</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link{{#ifeq menutitle 'Демонстрация'}} active{{/ifeq}}" href="#">Демонстрация</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link{{#ifeq menutitle 'Контакты'}} active{{/ifeq}}" href="#">Контакты</a>
+                </li>
+            </ul>
+            <a class="btn btn-primary btn-icon" href="#"><i class="i-search"></i></a>
+        </div>
+    </nav>
+</div>

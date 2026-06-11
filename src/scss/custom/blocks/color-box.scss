@@ -1,0 +1,43 @@
+.gradient-1 {
+    color: $white;
+    background-image:
+        linear-gradient(
+            125deg,
+            rgba(56, 120, 234, 1 * 0.2) 10%,
+            rgba(255, 255, 255, 0.78 * 0.2) 26%,
+            rgba(155, 187, 244, 0.89 * 0.2) 43%,
+            rgba(39, 79, 154, 1 * 0.2) 63%,
+            rgba(253, 254, 255, 0.78 * 0.2) 81%,
+            rgba(91, 147, 246, 1 * 0.2) 100%
+        ),
+        linear-gradient(0, $primary, $primary);
+}
+
+.color-box {
+    --#{$c-prefix}color-box-padding-x: 1.25rem;
+    --#{$c-prefix}color-box-padding-y: 2.5rem;
+
+    padding: var(--#{$c-prefix}color-box-padding-y) var(--#{$c-prefix}color-box-padding-x);
+
+    @extend .gradient-1;
+
+    &--min {
+        --#{$c-prefix}color-box-padding-y: 1.25rem;
+    }
+
+    @include media-breakpoint-up(lg) {
+        --#{$c-prefix}color-box-padding-x: 5rem;
+        --#{$c-prefix}color-box-padding-y: 5rem;
+
+        &--min {
+            --#{$c-prefix}color-box-padding-x: 1.25rem;
+            --#{$c-prefix}color-box-padding-y: 1.25rem;
+        }
+
+        &__title {
+            span {
+                color: $secondary;
+            }
+        }
+    }
+}

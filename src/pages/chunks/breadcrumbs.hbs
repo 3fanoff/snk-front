@@ -1,0 +1,17 @@
+{{#if breadcrumblist}}
+    <nav aria-label="breadcrumb" class="breadcrumb{{#if classNames}} {{classNames}}{{else}} container g-lg-0 mt-1{{/if}} d-none d-lg-flex">
+        <ol class="breadcrumb{{#if isDark}} breadcrumb--dark{{/if}}">
+            {{#each breadcrumblist}}
+                {{#if @last}}
+                    <li class="breadcrumb-item active" aria-current="page">
+                        {{this}}
+                    </li>
+                {{else}}
+                    <li class="breadcrumb-item">
+                        <a href="#">{{this}}</a>
+                    </li>
+                {{/if}}
+            {{/each}}
+        </ol>
+    </nav>
+{{/if}}

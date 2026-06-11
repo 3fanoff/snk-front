@@ -1,0 +1,25 @@
+@import 'bootstrap/scss/nav';
+
+.nav-tabs {
+    --#{$prefix}nav-link-font-size: #{$font-size-base * 1.25};
+    --#{$prefix}nav-link-color: #{$middle};
+    --#{$prefix}nav-link-padding-y: #{$spacer * 1.25};
+    --#{$prefix}nav-link-padding-x: #{$spacer * 1.25};
+
+    .nav-link {
+        line-height: 1;
+    }
+
+    overflow-x: scroll;
+    overflow-y: hidden;
+
+    @include media-breakpoint-up(lg) {
+        --#{$prefix}nav-link-font-size: #{$font-size-base * 1.375};
+
+        overflow: initial;
+
+        .nav-link {
+            min-width: rfs-value(300px);
+        }
+    }
+}

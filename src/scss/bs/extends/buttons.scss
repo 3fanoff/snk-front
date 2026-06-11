@@ -1,0 +1,33 @@
+@import 'bootstrap/scss/buttons';
+
+.btn-primary {
+    --#{$prefix}btn-color: #{$white};
+    --#{$prefix}btn-disabled-color: #{$white};
+    --#{$prefix}btn-disabled-bg: #{$middle};
+    --#{$prefix}btn-disabled-border-color: #{$middle};
+    --#{$prefix}btn-hover-color: #{$white};
+    --#{$prefix}btn-hover-bg: #{$secondary};
+    --#{$prefix}btn-hover-border-color: #{$secondary};
+    --#{$prefix}btn-active-color: #{$white};
+    --#{$prefix}btn-active-bg: #{$secondary};
+    --#{$prefix}btn-active-border-color: #{$primary};
+}
+
+.btn-outline-primary {
+    --#{$prefix}btn-hover-color: #{$white};
+    --#{$prefix}btn-active-color: #{$white};
+    --#{$prefix}btn-active-border-color: #{$secondary};
+    --#{$prefix}btn-disabled-color: #{$middle};
+    --#{$prefix}btn-disabled-border-color: #{$middle};
+}
+
+.btn-outline-white {
+    --#{$prefix}btn-hover-bg: transparent;
+    --#{$prefix}btn-hover-color: #{$secondary};
+    --#{$prefix}btn-hover-border-color: #{$secondary};
+    --#{$prefix}btn-active-color: #{$primary};
+    --#{$prefix}btn-active-border-color: #{$primary};
+    --#{$prefix}btn-active-bg: transparent;
+    --#{$prefix}btn-disabled-color: #{$middle};
+    --#{$prefix}btn-disabled-border-color: #{$middle};
+}

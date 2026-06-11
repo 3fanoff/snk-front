@@ -1,0 +1,21 @@
+.contact-box {
+    line-height: $line-height-sm;
+
+    &--iconed {
+        padding-left: 2.5rem;
+        position: relative;
+
+        .contact-box__icon {
+            position: absolute;
+            left: 0;
+        }
+    }
+
+    &__head {
+    }
+
+    &__sub {
+        font-size: $font-size-base * 0.75;
+        color: $middle;
+    }
+}

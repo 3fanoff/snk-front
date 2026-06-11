@@ -1,0 +1,14 @@
+@include media-breakpoint-up(lg) {
+    h1 {
+        font-size: $h1-lg-font-size;
+    }
+    h2 {
+        font-size: $h2-lg-font-size;
+    }
+    h3 {
+        font-size: $h3-lg-font-size;
+    }
+    h4 {
+        font-size: $h4-lg-font-size;
+    }
+}

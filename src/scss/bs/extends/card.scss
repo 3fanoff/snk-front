@@ -1,0 +1,9 @@
+@import 'bootstrap/scss/card';
+
+.card {
+    --#{$prefix}card-text-color: #{$middle};
+}
+
+.card-text {
+    color: var(--#{$prefix}card-text-color);
+}
