@@ -1,9 +1,9 @@
 <section class="container g-6 g-lg-0 position-relative js-carousel-container">
-    {{> breadcrumbs classNames='mt-1 position-absolute breadcrumb--dark' }}
+    {{> breadcrumbs classNames="mt-1 position-absolute breadcrumb--dark" }}
     <div class="css-carousel" data-carousel role="region" aria-label="{{title}}">
         {{#each slider}}
-            {{#ifeq this 'slide_1'}}{{> slides/slide_1 parentClass='css-carousel-item'}}{{/ifeq}}
-            {{#ifeq this 'slide_2'}}{{> slides/slide_2 parentClass='css-carousel-item'}}{{/ifeq}}
+            {{#ifeq this "slide_1"}}{{> slides/slide_1 parentClass="css-carousel-item"}}{{/ifeq}}
+            {{#ifeq this "slide_2"}}{{> slides/slide_2 parentClass="css-carousel-item"}}{{/ifeq}}
         {{/each}}
     </div>
     <ul class="indicator-list hero__nav" data-carousel-nav>
