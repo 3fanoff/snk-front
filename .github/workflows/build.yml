@@ -29,7 +29,7 @@ jobs:
 
       - name: Build static files with Docker
         run: |
-          docker build --target builder -t pvp-builder .
+          docker build --build-arg BASE_PATH="${{ env.GITHUB_PAGES_BASE_PATH }}" --target builder -t pvp-builder .
           
           # Создаем контейнер и копируем dist
           docker create --name pvp-temp pvp-builder
@@ -46,9 +46,3 @@ jobs:
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
-
-      #- name: Deploy to GitHub Pages
-      #  uses: peaceiris/actions-gh-pages@v4
-      #  with:
-      #    github_token: ${{ secrets.GITHUB_TOKEN }}
-      #    publish_dir: ./dist

@@ -1,5 +1,7 @@
 FROM node:22-alpine AS builder
 LABEL authors="Michael Trifanov"
+ARG BASE_PATH=/
+ENV BASE_PATH=$BASE_PATH
 WORKDIR /app
 COPY package*.json .
 RUN echo "NPM install BEFORE"
@@ -7,8 +9,6 @@ RUN npm ci || npm install
 RUN echo "NPM install AFTER"
 COPY . .
 RUN npm run build
-RUN echo "Build finished, checking dist folder..."
-RUN ls -la dist/
 
 FROM nginx:1.30-alpine AS production
 COPY --from=builder /app/dist /usr/share/nginx/html

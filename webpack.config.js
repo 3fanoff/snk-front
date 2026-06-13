@@ -6,13 +6,14 @@ const pages = require("./pages");
 
 module.exports = (env, argv) => {
     const isProduction = argv.mode === 'production';
-    const basePath = process.env.GITHUB_PAGES_BASE_PATH ?? '/';
+    const basePath = process.env.BASE_PATH ?? '/';
 
     pages.forEach(page => {
         page.basePath = basePath;
     })
 
-    console.log(argv.mode);
+    console.log('mode', argv.mode);
+    console.log('basePath', basePath);
 
     return {
         mode: isProduction ? 'production' : 'development',
