@@ -26,8 +26,12 @@ jobs:
         with:
           node-version: '22.22.2'
 
-      - run: npm ci
-      - run: npm run build
+      - name: Install dependencies
+        run: |
+            npm ci --verbose || npm install --verbose
+
+      - name: Build after install deps
+        run: npm run build
 
       - uses: peaceiris/actions-gh-pages@v3
         with:
