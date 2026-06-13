@@ -2,13 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <base href='{{basePath}}'>
     <meta name="viewport" content="width=device-width, minimum-scale=0.25, maximum-scale=5, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <title><%= htmlWebpackPlugin.options.title %></title>
+    <title>{{title}}</title>
 </head>
 <body class="">
 <main class="p-4">
+    {{title}}
     <p>Привет!</p>
     <ul>
         <li><a href="/home.html">Главная</a></li>

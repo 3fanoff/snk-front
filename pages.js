@@ -39,7 +39,7 @@ const pages = [
     {
         name: 'index',
         title: 'PVP-SNK',
-        template: path.resolve(__dirname, './src/index.html')
+        template: path.resolve(__dirname, './src/index.hbs')
     }
 ];
 

@@ -17,6 +17,9 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
+    env:
+      GITHUB_PAGES_BASE_PATH: "/snk-front/"
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4

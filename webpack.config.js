@@ -6,6 +6,11 @@ const pages = require("./pages");
 
 module.exports = (env, argv) => {
     const isProduction = argv.mode === 'production';
+    const basePath = process.env.GITHUB_PAGES_BASE_PATH ?? '/';
+
+    pages.forEach(page => {
+        page.basePath = basePath;
+    })
 
     console.log(argv.mode);
 
@@ -15,6 +20,7 @@ module.exports = (env, argv) => {
         output: {
             filename: isProduction ? '[name].[hash:10].js' : 'dev.[name].[hash:10].js',
             path: path.resolve(__dirname, 'dist'),
+            publicPath: basePath,
             clean: true,
             environment: {
                 arrowFunction: false,
@@ -196,7 +202,8 @@ module.exports = (env, argv) => {
                     title: page.title,
                     menutitle: page.menu,
                     slider: page.slider,
-                    breadcrumblist: page.breadcrumbs
+                    breadcrumblist: page.breadcrumbs,
+                    basePath: page.basePath
                 },
                 minify: {
                     collapseWhitespace: true,
