@@ -1,5 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 const pages = require("./pages");
 
 module.exports = (env, argv) => {
@@ -11,7 +13,7 @@ module.exports = (env, argv) => {
         mode: isProduction ? 'production' : 'development',
         entry: './src/main.js',
         output: {
-            filename: '[name].bundle.js',
+            filename: isProduction ? '[name].[hash:10].js' : 'dev.[name].[hash:10].js',
             path: path.resolve(__dirname, 'dist'),
             clean: true,
             environment: {
@@ -67,10 +69,15 @@ module.exports = (env, argv) => {
                     },
                 },
                 {
-                    test: /\.(png|jpe?g|gif|svg|webp|ico)$/i,
+                    test: /\.(png|jpe?g|gif|svg|ttf|woff|webp|ico)$/i,
                     type: 'asset/resource',
                     generator: {
-                        filename: 'img/[hash:10][ext][query]'
+                        filename: (pathData) => {
+                            const filename = pathData.filename;
+                            const relativePath = filename.replace(/^\/?src\//, '').split('/').slice(0, -1).join('/');
+
+                            return relativePath + '/[name][ext][query]';
+                        }
                     }
                 },
                 {
@@ -95,9 +102,15 @@ module.exports = (env, argv) => {
                     test: /\.(scss)$/i,
                     use: [
                         // Creates `style` nodes from JS strings
-                        "style-loader",
+                        isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
                         // Translates CSS into CommonJS
-                        "css-loader",
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                sourceMap: !isProduction,
+                                importLoaders: 1,
+                            }
+                        },
                         // Compiles Sass to CSS
                         {
                             loader: "sass-loader",
@@ -143,7 +156,35 @@ module.exports = (env, argv) => {
             splitChunks: {
                 chunks: 'all',
                 minSize: 500,
+                cacheGroups: {
+                    // Выделяем vendor стили в отдельный файл
+                    styles: {
+                        name: 'styles',
+                        type: 'css/mini-extract',
+                        chunks: 'all',
+                        enforce: true,
+                    },
+                },
             },
+            minimizer: [
+                new ImageMinimizerPlugin({
+                    test: /\.(jpe?g|png|gif)$/i,
+                    minimizer: {
+                        implementation: ImageMinimizerPlugin.sharpMinify,
+                        options: {
+                            encodeOptions: {
+                                jpeg: {
+                                    quality: 80,
+                                },
+                                png: {
+                                    quality: 80,
+                                },
+                            },
+                        },
+                    },
+                    deleteOriginalAssets: false,
+                }),
+            ]
         },
         plugins: pages.map((page) => {
             return new HtmlWebpackPlugin({
@@ -164,7 +205,14 @@ module.exports = (env, argv) => {
                     useShortDoctype: true,
                 },
             })
-        }),
+        }).concat(
+            isProduction ? [
+                new MiniCssExtractPlugin({
+                    filename: 'styles.[hash:10].css',
+                    chunkFilename: '[id].[hash:10].css',
+                })
+            ] : []
+        ),
         devServer: {
             static: {
                 directory: path.join(__dirname, 'dist'),
