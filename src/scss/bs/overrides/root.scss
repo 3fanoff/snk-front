@@ -50,9 +50,9 @@
         --#{$prefix}root-font-size: #{$font-size-root};
     }
     --#{$prefix}body-font-family: #{inspect($font-family-base)};
-    @include rfs($font-size-base, --#{$prefix}body-font-size);
+    @include rfs($font-size-md, --#{$prefix}body-font-size);
     --#{$prefix}body-font-weight: #{$font-weight-base};
-    --#{$prefix}body-line-height: #{$line-height-base};
+    --#{$prefix}body-line-height: #{$line-height-sm};
     @if $body-text-align != null {
         --#{$prefix}body-text-align: #{$body-text-align};
     }
@@ -131,5 +131,10 @@
         --#{$prefix}border-radius: #{$border-radius * 1.85};
         --#{$prefix}border-radius-sm: #{$border-radius-sm * 1.85};
         --#{$prefix}border-radius-lg: #{$border-radius-lg * 1.85};
+    }
+
+    @include media-breakpoint-up(lg) {
+        @include rfs($font-size-base, --#{$prefix}body-font-size);
+        --#{$prefix}body-line-height: #{$line-height-base};
     }
 }

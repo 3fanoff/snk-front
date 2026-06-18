@@ -1,0 +1,17 @@
+.number-box {
+    --#{$c-prefix}n-box-title-size: #{rfs-value(42px)};
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+    &__title {
+        font-size: var(--#{$c-prefix}n-box-title-size);
+        font-weight: $font-weight-semibold;
+        color: $primary;
+    }
+
+    @include media-breakpoint-up(lg) {
+        --#{$c-prefix}n-box-title-size: #{rfs-value(48px)};
+    }
+}

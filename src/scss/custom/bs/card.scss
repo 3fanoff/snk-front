@@ -43,22 +43,48 @@
 
 .card--type3 {
     --#{$prefix}card-text-color: #{$dark};
-    --#{$prefix}card-title-spacer-y: #{$spacer * 1.25};
+    --#{$prefix}card-title-spacer-y: #{$spacer * 0.75};
     --#{$prefix}card-spacer-y: #{$spacer * 1.25};
     --#{$prefix}card-spacer-x: #{$spacer * 1.25};
 
-    &-hov {
-        &:hover {
-            --#{$prefix}card-border-color: #{$primary};
-            --#{$prefix}card-bg: none;
-            --#{$prefix}card-title-color: #{$primary};
+    &-hov:hover,
+    &-outline {
+        --#{$prefix}card-border-color: #{$primary};
+        --#{$prefix}card-bg: none;
+        --#{$prefix}card-title-color: #{$primary};
+        --#{$prefix}card-text-color: #{$body-color};
 
-            cursor: default;
-        }
+        cursor: default;
     }
 
     @include media-breakpoint-up(lg) {
+        --#{$prefix}card-title-spacer-y: #{$spacer * 1.25};
         --#{$prefix}card-spacer-y: #{$spacer * 1.75};
         --#{$prefix}card-spacer-x: #{$spacer * 1.75};
+    }
+}
+
+.card--type4 {
+    @include media-breakpoint-up(lg) {
+        --#{$prefix}card-height: 100%;
+        --#{$prefix}card-spacer-y: #{$spacer * 1.25};
+        --#{$prefix}card-spacer-x: #{$spacer * 1.25};
+    }
+}
+
+.card--type5 {
+    --#{$prefix}card-height: 100%;
+    --#{$prefix}card-text-color: #{$dark};
+    --#{$prefix}card-spacer-y: #{$spacer * 1.25};
+    --#{$prefix}card-spacer-x: #{$spacer * 1.25};
+
+    &-outline {
+        --#{$prefix}card-bg: none;
+        --#{$prefix}card-border-color: #{$light};
+    }
+
+    @include media-breakpoint-up(lg) {
+        --#{$prefix}card-spacer-y: #{$spacer * 2.5};
+        --#{$prefix}card-spacer-x: #{$spacer * 2.5};
     }
 }

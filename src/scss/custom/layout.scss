@@ -43,8 +43,18 @@ html {
 
     &-subtitle {
         text-align: center;
-        max-width: rfs-value(500px);
+        //max-width: rfs-value(500px);
         margin: 0 auto var(--#{$c-prefix}title-bottom);
+    }
+
+    &-title,
+    &-subtitle {
+        b[data-xs] {
+            display: block;
+        }
+        b[data-lg] {
+            display: none;
+        }
     }
 
     &-container {
@@ -73,12 +83,20 @@ html {
             background-size: auto;
         }
 
-        &-title {
+        &-title--h2 {
             @at-root h1#{&} {
                 font-size: $h2-lg-font-size;
+                line-height: $line-height-sm;
             }
-            br {
+        }
+
+        &-title,
+        &-subtitle {
+            b[data-xs] {
                 display: none;
+            }
+            b[data-lg] {
+                display: block;
             }
         }
 

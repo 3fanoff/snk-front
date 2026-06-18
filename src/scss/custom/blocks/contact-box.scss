@@ -19,3 +19,16 @@
         color: $middle;
     }
 }
+
+.contact-box-dl {
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+
+    dt {
+        margin-bottom: #{$spacer * 0.5};
+    }
+    @at-root dl#{&},
+        dd {
+        margin-bottom: 0;
+    }
+}

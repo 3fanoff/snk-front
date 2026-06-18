@@ -22,6 +22,7 @@ $theme-colors: (
 $enable-dark-mode: false;
 $enable-cssgrid: true;
 $enable-rfs: false;
+$enable-important-utilities: false;
 
 $variable-prefix: pvp-;
 $prefix: $variable-prefix;
@@ -53,8 +54,8 @@ $grid-breakpoints: (
 $container-max-widths: (
     //sm: 640px,
     //md: 768px,
-    lg: 990px,
-    xl: 1140px //xxl: 82.5rem,
+    xs: 990px,
+    lg: 1140px //xl: 1140px //xxl: 82.5rem,
 );
 
 $grid-columns: 12;
@@ -88,7 +89,9 @@ $font-size-root: null;
 $font-size-base: 1rem;
 $font-size-sm: 0.75rem;
 $font-size-lg: $font-size-base * 1.25;
-$font-size-md: calc($font-size-base - 1px);
+$font-size-md: $font-size-base * 0.9375;
+
+$small-font-size: $font-size-sm;
 
 $font-sizes: (
     1: $font-size-base * 0.75,

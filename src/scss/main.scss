@@ -67,3 +67,22 @@
 [class*='rounded'] {
     corner-shape: squircle;
 }
+
+.col-contacts-left {
+    min-height: rfs-value(376px);
+
+    @include media-breakpoint-up(lg) {
+        flex-basis: 36.66%;
+    }
+}
+.col-contacts-right {
+}
+
+a[href^='tel:'],
+a[href^='mailto:'] {
+    color: inherit;
+    text-decoration: none;
+}
+
+//always end of the styles
+@import 'bootstrap/scss/utilities/api';

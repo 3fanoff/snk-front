@@ -2,12 +2,28 @@
     <div class="rounded-1 bg-primary color-box">
         <div class="row g-0">
             <div class="col-lg-7">
-                <p class="h2 color-box__title mb-4 mt-lg-4"><span>подготовим индивидуальное предложение</span> за 1 день</p>
-                <ul class="list-iconed d-none d-lg-block">
-                    <li>Расскажите менеджеру о вашей задаче</li>
-                    <li>Мы подберем оптимальное оборудование, рассчитаем стоимость и оценим сроки поставки</li>
+                <p class="h2 color-box__title mb-4 mt-lg-4">
+                    {{#if heading}}
+                        {{{heading}}}
+                    {{else}}
+                        <span>подготовим индивидуальное предложение</span> за 1 день
+                    {{/if}}
+                </p>
+                <ul class="{{#if (and list (eq list.length 1))}}list-unstyled{{else}}list-iconed{{/if}} d-none d-lg-block">
+                    {{#if list}}
+                        {{#each list}}
+                            <li>{{{.}}}</li>
+                        {{/each}}
+                    {{else}}
+                        <li>Расскажите менеджеру о вашей задаче</li>
+                        <li>Мы подберем оптимальное оборудование, рассчитаем стоимость и оценим сроки поставки</li>
+                    {{/if}}
                 </ul>
-                <p class="d-lg-none fs-4 mb-4">Мы подберем оптимальное оборудование под ваши потребности, рассчитаем стоимость и оценим сроки поставки</p>
+                {{#if alttext}}
+                    <p class="d-lg-none fs-4 mb-4">{{{alttext}}}</p>
+                {{else}}
+                    <p class="d-lg-none fs-4 mb-4">Мы подберем оптимальное оборудование под ваши потребности, рассчитаем стоимость и оценим сроки поставки</p>
+                {{/if}}
             </div>
             <div class="col-lg-5 ps-lg-4">
                 <form>
