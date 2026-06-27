@@ -4,7 +4,7 @@
     //grid-template-columns: repeat(16, 1fr);
     //grid-template-rows: 1fr;
 
-    gap: $spacer * .75;
+    gap: $spacer * 0.75;
 
     &--wrap {
         flex-wrap: wrap;
@@ -20,7 +20,7 @@
 
         overflow: hidden;
         @include border-radius(var(--#{$prefix}border-radius));
-        width: calc(50% - #{$spacer * divide(.75, 2)});
+        width: calc(50% - #{$spacer * divide(0.75, 2)});
 
         img {
             top: 50%;

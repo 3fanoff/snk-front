@@ -25,7 +25,7 @@
 
 .list-iconed--negative,
 .list-iconed--positive {
-    --#{$c-prefix}li-ico-gap: #{$spacer * .5};
+    --#{$c-prefix}li-ico-gap: #{$spacer * 0.5};
     --#{$c-prefix}li-ico-spacer-y: #{$spacer * 0.125};
     --#{$c-prefix}li-ico-symbol: #{$i-x};
     --#{$c-prefix}li-ico-symbol-color: #{$danger};

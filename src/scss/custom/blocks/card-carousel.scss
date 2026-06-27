@@ -85,7 +85,7 @@
             width: rfs-value(200px);
         }
 
-        [class*="carousel-control"] ~ & {
+        [class*='carousel-control'] ~ & {
             margin-left: $carousel-control-width;
             margin-right: $carousel-control-width;
         }
