@@ -1,5 +1,6 @@
 .contact-box {
     line-height: $line-height-sm;
+    font-size: var(--#{$prefix}body-font-size);
 
     &--iconed {
         padding-left: 2.5rem;
@@ -8,15 +9,28 @@
         .contact-box__icon {
             position: absolute;
             left: 0;
+
+            top: 50%;
+            transform: translateY(-50%);
         }
+    }
+
+    &--socials {
+        gap: #{$spacer * .5};
+        display: grid;
     }
 
     &__head {
     }
 
     &__sub {
-        font-size: $font-size-base * 0.75;
         color: $middle;
+    }
+
+    @include media-breakpoint-up(lg) {
+        &__sub {
+            font-size: $font-size-base * 0.75;
+        }
     }
 }
 

@@ -208,7 +208,8 @@ module.exports = (env, argv) => {
                     slider: page.slider,
                     breadcrumblist: page.breadcrumbs,
                     basePath: page.basePath,
-                    data: page.data || {}
+                    data: page.data || {},
+                    headData: page.headData || {},
                 },
                 minify: {
                     collapseWhitespace: true,

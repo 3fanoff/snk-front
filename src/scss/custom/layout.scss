@@ -9,17 +9,23 @@ html {
 
     &__header {
         flex: 0 0 auto;
+        padding-top: rfs-value(12px);
+        padding-bottom: 0;
 
         background: url('@/img/bg_top.png') center bottom no-repeat;
         background-size: cover;
 
         &--nohero {
+            padding-bottom: rfs-value(12px);
+
             background-image: none;
             background-color: #{$light};
         }
     }
 
     &__footer {
+        --#{$prefix}body-font-size: #{$font-size-base};
+
         flex: 0 0 auto;
         background: url('@/img/bg_bottom_mob.png') center top no-repeat;
         background-size: cover;
@@ -71,10 +77,15 @@ html {
         &__header {
             background-position-y: top;
             background-size: auto;
+            padding-top: rfs-value(10px);
+
+
 
             &--nohero {
                 background-image: url('@/img/bg_top.png');
                 background-color: initial;
+
+                padding-bottom: rfs-value(10px);
             }
         }
 

@@ -1,0 +1,26 @@
+{{#> layout/base-layout}}
+    {{> breadcrumbs }}
+
+    {{> card-comparision
+            heading="Обучение операторов"
+            heading_tag="h1"
+            subtitle="Инженеры, которые сами работают на спектрометрах и РФА-анализаторах, <br>научат ваших сотрудников получать точные результаты без ошибок" }}
+
+    {{> stage-list
+            stages=data.whylist
+            gap_lg=3
+            heading="Почему обучение у нас"
+            noindex=true
+            subtitle="Опыт более 500 предприятий. Инженеры, которые сами стоят у приборов"}}
+
+    {{> card-formats }}
+
+    {{> what-if
+            heading="«А что, если обучить одного человека, а он уволится?»"
+            btn="Записаться на обучение"
+            text="Обучаем операторов с запасом. Можем провести обучение для 2–3 сотрудников сразу, чтобы вы не зависели от одного человека. Через полгода — проведем повторное тестирование."}}
+
+    <!-- Синяя форма = color-box форма и текст -->
+    {{> color-box-form heading=data.colorbox.heading list=data.colorbox.list alttext=data.colorbox.alt}}
+
+{{/layout/base-layout}}

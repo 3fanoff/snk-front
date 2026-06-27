@@ -3,6 +3,16 @@
 
     <!-- Контакты и адреса -->
     {{> addresses }}
+
+    <section class="container layout-container px-0">
+        <h2 class="layout-title">Карта проезда</h2>
+        <p class="layout-subtitle">До нас легко добраться на машине и общественном транспорте</p>
+        <div id="map-1"
+             class="js-yandex-map rounded-2 overflow-hidden"
+             data-coords="[37.668875, 55.752708]"
+             style="width: 100%; height: 500px"></div>
+    </section>
+
     <!-- Реквизиты -->
     {{> requisites }}
     <!-- Филиал -->

@@ -1,0 +1,28 @@
+<section class="container layout-container">
+    {{#tag heading_tag 'layout-title'}}
+        {{{heading}}}
+    {{/tag}}
+    {{#if subtitle}}
+        {{#tag 'p' 'layout-subtitle'}}{{{subtitle}}}{{/tag}}
+    {{/if}}
+    <div class="row row-cols-1 row-cols-lg-2 gy-5 gy-lg-0 gx-lg-3">
+        {{#each data.cards}}
+            <div class="col">
+                <div class="card card--type5{{#ifeven (math 'plus' @index 1)}} card--bg-blue{{/ifeven}} card--body-color">
+                    <div class="card-body">
+                        <h3 class="card-title">{{{title}}}</h3>
+                        <p class="card-text mb-1">{{{text}}}</p>
+                        {{#with list}}
+                            <p class="mb-1"><strong>{{{title}}}</strong></p>
+                            <ul class="card-text list-iconed list-iconed--{{type}}">
+                                {{#each items}}
+                                    <li>{{{.}}}</li>
+                                {{/each}}
+                            </ul>
+                        {{/with}}
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</section>

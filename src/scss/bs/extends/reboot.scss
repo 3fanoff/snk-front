@@ -1,0 +1,5 @@
+@import "bootstrap/scss/reboot";
+
+ol, ul {
+    padding-left: #{$spacer * 1.625};
+}

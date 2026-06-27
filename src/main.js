@@ -22,4 +22,23 @@ document.addEventListener('DOMContentLoaded', () => {
     })*/
 
     new Modal('.js-modal');
+
+    if (window.ymaps3) {
+        ymaps3.ready.then(() => {
+            Array.from(document.querySelectorAll('.js-yandex-map')).forEach(mapNode => {
+                const map = new ymaps3.YMap(
+                    mapNode,
+                    {
+                        location: {
+                            center: JSON.parse(mapNode.dataset.coords),// [55.752708, 37.668875],
+                            zoom: 16
+                        }
+                    }
+                );
+
+                map.addChild(new ymaps3.YMapDefaultSchemeLayer());
+            })
+
+        })
+    }
 });

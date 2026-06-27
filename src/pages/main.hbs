@@ -28,7 +28,7 @@
     <!-- Табы -->
     {{> tabs }}
     <!-- FAQ -->
-    {{> faq-accordion }}
+    {{> faq-accordion heading="Часто задаваемые&nbsp;<b data-xs></b><span>вопросы</span>" questions=data.faq }}
     <!-- Video -->
     {{> video-list }}
     <!-- Свой сервисный центр -->
@@ -41,5 +41,11 @@
     {{> requisites }}
     <!-- Филиал -->
     {{> branch }}
+    <!-- Какую демонстрацию выбрать? -->
+    {{> card-demo-types }}
+    <!-- Перечень этапов -->
+    {{!> stage-list heading="Мы работаем оперативно и прозрачно"}}
+
+
 
 {{/layout/base-layout}}

@@ -1,0 +1,17 @@
+{{#> layout/base-layout}}
+    {{> breadcrumbs }}
+
+    {{> service-center heading="Ремонт спектрометров и&nbsp;РФА-анализаторов" heading_tag="h1"
+            subtitle="Запчасти в наличии. Калибровка на эталонных образцах. <b data-lg></b>После ремонта — протокол контрольных измерений" }}
+
+    {{> gallery-grid }}
+
+    {{> stage-list stages=data.stage heading="Мы работаем оперативно и&nbsp;прозрачно"}}
+
+    <!-- Карусель логотипов -->
+    {{> brands-carousel heading="Работаем с&nbsp;любыми брендами" }}
+
+    <!-- Синяя форма = color-box форма и текст -->
+    {{> color-box-form heading=data.colorbox.heading list=data.colorbox.list alttext=data.colorbox.alt}}
+
+{{/layout/base-layout}}

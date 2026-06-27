@@ -51,9 +51,14 @@
 }
 
 .logos-carousel {
+    $selector: &;
     @extend .css-carousel;
 
     gap: $spacer * 1.25;
+
+    &--type2 {
+        gap: $spacer * 0.5;
+    }
 
     &__item {
         @extend .css-carousel-item;
@@ -63,6 +68,27 @@
         outline-offset: calc(var(--#{$prefix}border-width) * -1);
         width: #{divide(160, 16)}rem;
         text-align: center;
+
+        #{$selector}--type2 & {
+            outline: none;
+            width: rfs-value(90px);
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        #{$selector}--type2 &__item {
+            width: rfs-value(200px);
+        }
+
+        [class*="carousel-control"] ~ & {
+            margin-left: $carousel-control-width;
+            margin-right: $carousel-control-width;
+        }
     }
 }
 

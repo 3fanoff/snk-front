@@ -1,4 +1,9 @@
 .list-iconed {
+    --#{$c-prefix}li-ico-gap: #{$spacer * 1.25};
+    --#{$c-prefix}li-ico-spacer-y: #{$spacer * 0.75};
+    --#{$c-prefix}li-ico-symbol: #{$i-minus};
+    --#{$c-prefix}li-ico-symbol-color: #{$white};
+
     @at-root ul#{&} {
         padding-left: 0;
     }
@@ -6,14 +11,27 @@
     li {
         display: flex;
         align-items: center;
-        gap: $spacer * 1.25;
-        margin-top: $spacer * 0.75;
-        margin-bottom: $spacer * 0.75;
+        gap: var(--#{$c-prefix}li-ico-gap);
+        margin-top: var(--#{$c-prefix}li-ico-spacer-y);
+        margin-bottom: var(--#{$c-prefix}li-ico-spacer-y);
     }
 
     li::before {
         @extend [class^='i-'];
-        content: $i-minus;
-        color: $white;
+        content: var(--#{$c-prefix}li-ico-symbol);
+        color: var(--#{$c-prefix}li-ico-symbol-color);
     }
+}
+
+.list-iconed--negative,
+.list-iconed--positive {
+    --#{$c-prefix}li-ico-gap: #{$spacer * .5};
+    --#{$c-prefix}li-ico-spacer-y: #{$spacer * 0.125};
+    --#{$c-prefix}li-ico-symbol: #{$i-x};
+    --#{$c-prefix}li-ico-symbol-color: #{$danger};
+    --#{$c-prefix}icon-size: #{$font-size-base * 1.25};
+}
+.list-iconed--positive {
+    --#{$c-prefix}li-ico-symbol: #{$i-check};
+    --#{$c-prefix}li-ico-symbol-color: #{$success};
 }

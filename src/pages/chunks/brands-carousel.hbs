@@ -1,0 +1,58 @@
+<section class="container layout-container _d-none _d-lg-block">
+    {{#if heading}}
+        <h2 class="layout-title">{{heading}}</h2>
+        <div class="layout-subtitle">{{{subtitle}}}</div>
+    {{/if}}
+    <div class="position-relative js-carousel-container">
+        <button class="carousel-control-prev start-0 d-none d-lg-block" type="button" data-type="prev" data-carousel-btn>
+            <span class="carousel-control-prev-icon i-left" aria-hidden="true"></span>
+            <span class="visually-hidden">Назад</span>
+        </button>
+        <button class="carousel-control-next end-0 d-none d-lg-block" type="button" data-type="next" data-carousel-btn>
+            <span class="carousel-control-next-icon i-right" aria-hidden="true"></span>
+            <span class="visually-hidden">Далее</span>
+        </button>
+        <div class="logos-carousel logos-carousel--type2" role="region" aria-label="Бренды" data-carousel>
+            {{#times 2}}
+                <div class="logos-carousel__item" data-carousel-item>
+                    <figure class="figure mb-0">
+                        <img src="../../content/l-rem1_1.png" width="200" height="80" alt="1-1" class="" />
+                    </figure>
+                </div>
+                <div class="logos-carousel__item" data-carousel-item>
+                    <figure class="figure mb-0">
+                        <img src="../../content/l-rem2_1.png" width="200" height="80" alt="2-1" class="" />
+                    </figure>
+                </div>
+                <div class="logos-carousel__item" data-carousel-item>
+                    <figure class="figure mb-0">
+                        <img src="../../content/l-rem3_1.png" width="200" height="80" alt="3-1" class="" />
+                    </figure>
+                </div>
+                <div class="logos-carousel__item" data-carousel-item>
+                    <figure class="figure mb-0">
+                        <img src="../../content/l-rem4_1.png" width="200" height="80" alt="4-1" class="" />
+                    </figure>
+                </div>
+                <div class="logos-carousel__item" data-carousel-item>
+                    <figure class="figure mb-0">
+                        <img src="../../content/l-rem5_1.png" width="200" height="80" alt="5-1" class="" />
+                    </figure>
+                </div>
+                <div class="logos-carousel__item" data-carousel-item>
+                    <figure class="figure mb-0">
+                        <img src="../../content/l-rem6_1.png" width="200" height="80" alt="6-1" class="" />
+                    </figure>
+                </div>
+                <div class="logos-carousel__item" data-carousel-item>
+                    <figure class="figure mb-0">
+                        <img src="../../content/l-rem7_1.png" width="200" height="80" alt="7-1" class="" />
+                    </figure>
+                </div>
+            {{/times}}
+        </div>
+        <!--<ul class="indicator-list mt-4" data-carousel-nav>
+        <li class="active">1</li>
+        </ul>-->
+    </div>
+</section>

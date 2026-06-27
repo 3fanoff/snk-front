@@ -13,13 +13,13 @@
 <main class="p-4">
     {{title}}
     <p>Привет!</p>
-    <ul>
+    <ol>
         {{#each data._pages}}
             {{#unless (eq name 'index')}}
                 <li><a href="{{name}}.html">{{menu}}</a></li>
             {{/unless}}
         {{/each}}
-    </ul>
+    </ol>
     <hr>
     <hr>
     <hr>

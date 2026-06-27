@@ -1,13 +1,17 @@
-<div class="container g-6 g-lg-0 py-lg-3 d-lg-flex">
+<div class="container g-6 g-lg-0 py-lg-3 __d-lg-flex">
     <div class="row g-0">
         <div class="col-12 col-lg-4">
-            <div class="footer-about">
-                <a href="{{basePath}}" class="footer-about__logo"><img src="../../img/logo_bottom.png" alt="logo" width="182" height="30" /></a>
-                <p class="footer-about__sub fs-1 lh-1 mt-1 mb-0">Промышленное оборудование и&nbsp;приборы<br />для разрушающего и&nbsp;неразрушающего
+            <div class="footer-logo d-flex d-lg-block">
+                <a href="{{basePath}}" class="footer-about__logo">
+                    <img src="../../img/logo_bottom.png" alt="logo" width="100" height="100" />
+                </a>
+                <div class="footer-logo__sub d-lg-none ms-1"><span class="color-primary fs-5">ООО&nbsp;«ПВП СНК»</span><br>Приборы разрушающего<br>и неразрушающего контроля</div>
+                <p class="footer-logo__sub mt-1 mb-0 d-none d-lg-block">Промышленное оборудование и&nbsp;приборы<br />для разрушающего и&nbsp;неразрушающего
                     контроля<br />в&nbsp;России и&nbsp;странах СНГ</p>
             </div>
             <div class="subscription-box my-6 my-lg-4">
-                <p class="h3">Подпишитесь на рассылку:</p>
+                <p class="h3 mb-1 d-none d-lg-block">Подпишитесь на рассылку:</p>
+                <p class="fs-4 mb-1 d-lg-none">Подпишитесь на рассылку:</p>
                 <form>
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Email" aria-label="subscription" aria-describedby="subscription-btn" />
@@ -15,9 +19,8 @@
                     </div>
                 </form>
             </div>
-            <div class="copyright fs-1 lh-1 color-middle d-none d-lg-block">© ООО «ПВП «СНК» — 2025.<br />
-                Системы неразрушающего контроля (ООО «Производственно-внедренческое предприятие «СНК»). Все права защищены.<br />
-                <a href="#" class="color-reset">Политика конфиденциальности</a>
+            <div class="copyright fs-1 lh-1 color-middle d-none d-lg-block">© ООО «ПВП «СНК» — 2026. <br>ООО «Производственно-внедренческое предприятие «СНК».<br>
+                Все права защищены. <a href="#" class="color-reset">Политика конфиденциальности</a>
             </div>
         </div>
         <div class="col-12 col-lg-8">
@@ -65,12 +68,18 @@
                         <div class="contact-box">
                             <div class="contact-box__head">info@pvp-snk.ru</div>
                         </div>
-                        <div class="socials-box py-4 py-lg-0">
-                            <a href="#" class="i-whatsapp" target="_blank"></a>
-                            <a href="#" class="i-youtube" target="_blank"></a>
-                            <a href="#" class="i-telegram" target="_blank"></a>
+                        <div class="contact-box contact-box--socials">
+                            <div class="contact-box__sub fs-1">Мы в соц сетях:</div>
+                            <div class="socials-box">
+                                <a href="#" target="_blank"><img src="../../img/ico_max.svg" width="32" height="32" alt="max"></a>
+                                <a href="#" target="_blank"><img src="../../img/ico_tg.svg" width="32" height="32" alt="tg"></a>
+                                <a href="#" target="_blank"><img src="../../img/ico_vk.svg" width="32" height="32" alt="vk"></a>
+                                <a href="#" target="_blank"><img src="../../img/ico_rutube.svg" width="32" height="32" alt="rutube"></a>
+                                <a href="#" target="_blank"><img src="../../img/ico_youtube.svg" width="32" height="32" alt="youtube"></a>
+                            </div>
                         </div>
-                        <div class="copyright fs-1 lh-1 color-middle d-lg-none">© ООО «ПВП «СНК» — 2025.<br />
+
+                        <div class="copyright mt-5 fs-1 lh-1 color-middle d-lg-none">© ООО «ПВП «СНК» — 2025.<br />
                             Системы неразрушающего контроля (ООО «Производственно-внедренческое предприятие «СНК»). Все права защищены.<br />
                             <a href="#" class="color-reset">Политика конфиденциальности</a>
                         </div>
