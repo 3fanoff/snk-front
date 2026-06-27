@@ -1,5 +1,8 @@
 @import 'bootstrap/scss/type';
 
+h1 {
+    line-height: $line-height-base;
+}
 h1,
 h2 {
     text-transform: uppercase;

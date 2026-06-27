@@ -1,0 +1,22 @@
+.footer-logo {
+    display: flex;
+    align-items: center;
+
+    img {
+        width: rfs-value(64px);
+        height: auto;
+    }
+
+    @include media-breakpoint-up(lg) {
+        display: block;
+
+        img {
+            width: auto;
+        }
+
+        &__sub {
+            font-size: $font-size-sm;
+            line-height: $line-height-sm;
+        }
+    }
+}

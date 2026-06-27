@@ -12,7 +12,7 @@
 
 // Layout & components
 @import './overrides/root';
-@import 'bootstrap/scss/reboot';
+@import './extends/reboot';
 @import './extends/type';
 @import 'bootstrap/scss/images';
 //@import 'bootstrap/scss/containers';
@@ -48,5 +48,5 @@
 @import 'bootstrap/scss/helpers';
 
 // Utilities
-
-@import 'bootstrap/scss/utilities/api';
+//move to the end of the styles
+//@import 'bootstrap/scss/utilities/api';

@@ -1,0 +1,31 @@
+{{#> layout/base-layout}}
+    {{> breadcrumbs }}
+
+    {{> card-comparision
+            heading="Рассрочка"
+            heading_tag="h1"
+            subtitle="Получите прибор сейчас — платите частями. <br>Без переплат, без кредитного договора, без удорожания" }}
+
+    {{> card-primary-iconed heading="Прозрачные условия. <b data-xs></b>Без подвохов" items=data.iconedList}}
+
+    {{> stage-list
+            stages=data.stage
+            heading="Что нужно, чтобы получить рассрочку"
+            noindex=true
+            subtitle="Более 500 предприятий уже получили оборудование в рассрочку от ПВП «СНК»"}}
+
+    {{!> card-formats }}
+
+    {{> table-box }}
+
+    {{> faq-accordion heading="Частые вопросы о рассрочке" questions=data.faq}}
+
+    {{> what-if
+            heading="«А что, если через месяц деньги появятся и я захочу закрыть всё сразу?»"
+            btn="Заявка на рассрочку"
+            text="Пожалуйста. Закрывайте досрочно без штрафов. Мы только скажем «спасибо»."}}
+
+    <!-- Синяя форма = color-box форма и текст -->
+    {{> color-box-form heading=data.colorbox.heading list=data.colorbox.list alttext=data.colorbox.alt}}
+
+{{/layout/base-layout}}

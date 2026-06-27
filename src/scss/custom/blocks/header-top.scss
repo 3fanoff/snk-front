@@ -1,10 +1,16 @@
 .header-top {
     &__logo {
-        height: #{divide(55, 16)}rem;
+        height: rfs-value(56px);
+
+        img {
+            height: 100%;
+            width: auto;
+        }
 
         &-sub {
             font-size: #{$font-size-sm};
             line-height: #{$line-height-sm};
+            align-content: center;
             span {
                 font-size: #{divide(15, 16)}rem;
                 font-weight: 600;
@@ -23,7 +29,7 @@
 
     @include media-breakpoint-up(lg) {
         &__logo {
-            height: 4.0625rem; //65px
+            height: rfs-value(80px);
             margin-left: 1.6875rem;
         }
     }

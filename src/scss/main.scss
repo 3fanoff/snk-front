@@ -41,7 +41,7 @@
 
 .socials-box {
     display: flex;
-    gap: 0.75rem;
+    gap: #{$spacer * 0.5};
 
     a {
         text-decoration: none;
@@ -67,3 +67,34 @@
 [class*='rounded'] {
     corner-shape: squircle;
 }
+
+.col-contacts-left {
+    min-height: rfs-value(376px);
+
+    @include media-breakpoint-up(lg) {
+        flex-basis: 36.66%;
+    }
+}
+.col-contacts-right {
+}
+
+a[href^='tel:'],
+a[href^='mailto:'] {
+    color: inherit;
+    text-decoration: none;
+}
+
+.table-box {
+    --#{$prefix}border-color: #d9d9d9;
+    @extend .rounded-3;
+    @extend .border;
+    overflow: hidden;
+
+    table {
+        margin: calc(var(--#{$prefix}border-width) * -1);
+        width: calc(100% + var(--#{$prefix}border-width) * 2);
+    }
+}
+
+//always end of the styles
+@import 'bootstrap/scss/utilities/api';

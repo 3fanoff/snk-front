@@ -1,4 +1,8 @@
 <section class="container layout-container d-none d-lg-block js-carousel-container">
+    {{#if heading}}
+        <h2 class="layout-title">{{heading}}</h2>
+        <div class="layout-subtitle"></div>
+    {{/if}}
     <div class="logos-carousel" role="region" aria-label="Партнеры" data-carousel>
         {{#times 2}}
             <div class="logos-carousel__item rounded-2" data-carousel-item>

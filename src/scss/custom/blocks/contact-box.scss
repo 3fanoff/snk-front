@@ -1,5 +1,6 @@
 .contact-box {
     line-height: $line-height-sm;
+    font-size: var(--#{$prefix}body-font-size);
 
     &--iconed {
         padding-left: 2.5rem;
@@ -8,14 +9,40 @@
         .contact-box__icon {
             position: absolute;
             left: 0;
+
+            top: 50%;
+            transform: translateY(-50%);
         }
+    }
+
+    &--socials {
+        gap: #{$spacer * 0.5};
+        display: grid;
     }
 
     &__head {
     }
 
     &__sub {
-        font-size: $font-size-base * 0.75;
         color: $middle;
+    }
+
+    @include media-breakpoint-up(lg) {
+        &__sub {
+            font-size: $font-size-base * 0.75;
+        }
+    }
+}
+
+.contact-box-dl {
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+
+    dt {
+        margin-bottom: #{$spacer * 0.5};
+    }
+    @at-root dl#{&},
+        dd {
+        margin-bottom: 0;
     }
 }

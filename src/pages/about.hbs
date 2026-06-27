@@ -1,0 +1,18 @@
+{{#> layout/base-layout}}
+    {{> breadcrumbs }}
+
+    {{> number-boxes }}
+    <!-- Прямой доступ & НАША Миссия -->
+    {{> about-cards }}
+    <!-- Синяя форма = color-box форма и текст -->
+    {{> color-box-form heading=data.colorbox_2.heading list=data.colorbox_2.list }}
+    <!-- Свой сервисный центр -->
+    {{> self-service }}
+    <!-- Карта -->
+    {{> map-box }}
+    <!-- Карусель логотипов -->
+    {{> logos-carousel heading="Где работает наше оборудование" }}
+
+    {{> color-box-form heading=data.colorbox.heading list=data.colorbox.list alttext=data.colorbox.alt}}
+
+{{/layout/base-layout}}

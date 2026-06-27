@@ -1,5 +1,9 @@
 <section class="container layout-container">
-    <h2 class="layout-title"><span>Собственный</span><br />&nbsp;сервисный центр</h2>
+    {{#tag (or heading_tag 'h2') 'layout-title'}}
+        {{#if heading}}{{{heading}}}{{else}}<span>Собственный</span><b data-xs></b>&nbsp;сервисный центр{{/if}}
+    {{/tag}}
+    {{#if subtitle}}<p class="layout-subtitle">{{{subtitle}}}</p>{{/if}}
+    <input type="checkbox" id="service-center-checkbox" class="toggle-check" data-mob />
     <div class="row g-0">
         <div class="col-lg-8 pe-lg-6">
             <div class="row row-cols-1 row-cols-lg-2 g-4">
@@ -24,7 +28,7 @@
                         <p>На&nbsp;складе всегда доступны все необходимые компоненты для ремонта и&nbsp;обслуживания</p>
                     </div>
                 </div>
-                <div class="basic-text-box basic-text-box--iconed col">
+                <div class="basic-text-box basic-text-box--iconed col" data-toggle-hide>
                     <i class="i-chat-text"></i>
                     <div>
                         <p class="basic-text-box__title h5"><i class="i-chat-text"></i>Техподдержка 24</p>
@@ -32,7 +36,7 @@
                     </div>
                 </div>
             </div>
-            <button type="button" class="btn btn-outline-dark w-100 d-lg-none mt-5">Показать ещё</button>
+            <label class="btn btn-outline-dark w-100 d-lg-none mt-5" data-toggle-label for="service-center-checkbox">Показать ещё</label>
         </div>
         <div class="col-lg-4 d-none d-lg-block">
             <figure class="figure mb-0">

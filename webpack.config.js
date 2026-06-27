@@ -2,9 +2,10 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
-const pages = require("./pages");
+const CssMqpackerPlugin = require('css-mqpacker-webpack-plugin');
 
 module.exports = (env, argv) => {
+    const pages = require("./pages");
     const isProduction = argv.mode === 'production';
     const basePath = process.env.BASE_PATH ?? '/';
 
@@ -19,10 +20,10 @@ module.exports = (env, argv) => {
         mode: isProduction ? 'production' : 'development',
         entry: './src/main.js',
         output: {
-            filename: isProduction ? '[name].[hash:10].js' : 'dev.[name].[hash:10].js',
+            filename: isProduction ? '[name].[hash:10].js' : 'dev.[name].js',
             path: path.resolve(__dirname, 'dist'),
             publicPath: basePath,
-            clean: true,
+            clean: isProduction,
             environment: {
                 arrowFunction: false,
                 destructuring: false,
@@ -79,6 +80,7 @@ module.exports = (env, argv) => {
                     test: /\.(png|jpe?g|gif|svg|ttf|woff|webp|ico)$/i,
                     type: 'asset/resource',
                     generator: {
+                        //filename: 'img/[hash:10][ext][query]'
                         filename: (pathData) => {
                             const filename = pathData.filename;
                             const relativePath = filename.replace(/^\/?src\//, '').split('/').slice(0, -1).join('/');
@@ -108,9 +110,7 @@ module.exports = (env, argv) => {
                 {
                     test: /\.(scss)$/i,
                     use: [
-                        // Creates `style` nodes from JS strings
                         isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
-                        // Translates CSS into CommonJS
                         {
                             loader: 'css-loader',
                             options: {
@@ -154,7 +154,7 @@ module.exports = (env, argv) => {
             extensions: ['.js', '.css'],
             fallback: {},
             alias: {
-                '@': path.resolve(__dirname, 'src')
+                '@': path.resolve(__dirname, 'src'),
             }
         },
         optimization: {
@@ -174,6 +174,9 @@ module.exports = (env, argv) => {
                 },
             },
             minimizer: [
+                new CssMqpackerPlugin({
+                    sort: true
+                }),
                 new ImageMinimizerPlugin({
                     test: /\.(jpe?g|png|gif)$/i,
                     minimizer: {
@@ -204,7 +207,9 @@ module.exports = (env, argv) => {
                     menutitle: page.menu,
                     slider: page.slider,
                     breadcrumblist: page.breadcrumbs,
-                    basePath: page.basePath
+                    basePath: page.basePath,
+                    data: page.data || {},
+                    headData: page.headData || {},
                 },
                 minify: {
                     collapseWhitespace: true,

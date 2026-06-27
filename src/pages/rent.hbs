@@ -1,0 +1,25 @@
+{{#> layout/base-layout}}
+    {{> breadcrumbs }}
+
+    {{> card-comparision
+            heading="Аренда анализаторов "
+            heading_tag="h1"
+            subtitle="Платите только за время использования. <br>Без покупки, без обслуживания, без обязательств" }}
+
+    {{> card-primary-iconed heading="Всё, что нужно для работы — уже включено в стоимость" items=data.iconedList}}
+
+    {{> stage-list
+            stages=data.stage
+            heading="когда аренда выгоднее покупки"
+            noindex=true
+            subtitle="Более 500 предприятий уже получили оборудование в рассрочку от ПВП «СНК»"}}
+
+    {{> what-if
+            heading="«А что, если аренда не подойдёт? Что делать?»"
+            btn="Заявка на аренду"
+            text="Позвоните или напишите. Сделаем возврат, поменяем прибор или пересчитаем стоимость. Мы за прозрачные и гибкие отношения."}}
+
+    <!-- Синяя форма = color-box форма и текст -->
+    {{> color-box-form heading=data.colorbox.heading list=data.colorbox.list alttext=data.colorbox.alt}}
+
+{{/layout/base-layout}}

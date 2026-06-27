@@ -1,0 +1,22 @@
+<section class="container layout-container">
+    <h2 class="layout-title">{{{heading}}}</h2>
+    <div class="grid gap-3">
+        {{#each items}}
+            <div class="g-col-12 g-col-lg-4 card card--type6 card--bg-primary">
+                <div class="card-body d-ac-center">
+                    <p class="card-title h3 d-flex d-ai-center gap-1"><i class="i-{{icon}}"></i>{{{title}}}</p>
+                    {{#if text}}
+                        <p class="card-text">{{{text}}}</p>
+                    {{/if}}
+                    {{#if list}}
+                        <ul class="card-text">
+                            {{#each list}}
+                                <li>{{{.}}}</li>
+                            {{/each}}
+                        </ul>
+                    {{/if}}
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</section>

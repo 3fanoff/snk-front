@@ -1,0 +1,13 @@
+{{#> layout/base-layout}}
+
+    <section class="container layout-container"></section>
+    <!-- какую демонстрацию выбрать? -->
+    {{> card-demo-types }}
+    <!-- Синяя форма = color-box форма и текст -->
+    {{> color-box-form heading=data.colorbox.heading list=data.colorbox.list alttext=data.colorbox.alt}}
+    <!-- Карта -->
+    {{> map-box }}
+    <!-- Карусель логотипов -->
+    {{> logos-carousel heading="Где работает наше оборудование" }}
+
+{{/layout/base-layout}}
