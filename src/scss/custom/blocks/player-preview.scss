@@ -1,11 +1,18 @@
 .player-preview-carousel {
-    gap: $spacer * 1.25;
+    --#{$c-prefix}pp-size-lg: 50%;
+    --#{$c-prefix}pp-gap: #{$spacer * 1.25};
+
+    gap: var(--#{$c-prefix}pp-gap);
+
+    .player-preview {
+        width: calc(var(--#{$c-prefix}pp-size-lg) - var(--#{$c-prefix}pp-gap) * 0.5);
+    }
 
     @include media-breakpoint-down(lg) {
-        gap: $spacer * 0.75;
+        --#{$c-prefix}pp-gap: #{$spacer * 0.75};
 
         .player-preview {
-            width: rfs-value(82vw);
+            width: 82vw;
         }
 
         .play-btn {
@@ -36,6 +43,12 @@
             top: 0;
             right: 0;
             bottom: 0;
+        }
+
+        &.active {
+            img, .play-btn, &::before {
+                display: none;
+            }
         }
 
         img {

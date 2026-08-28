@@ -3,6 +3,7 @@ import CSSCarousel from './js/css-carousel';
 import Collapse from 'bootstrap/js/src/collapse';
 import Tab from 'bootstrap/js/src/tab';
 import Modal from 'bootstrap/js/src/modal';
+import VideoObject from "@/js/video-object";
 
 document.addEventListener('DOMContentLoaded', () => {
     Array.from(document.querySelectorAll('.js-carousel-container')).forEach((carousel) => {
@@ -16,6 +17,16 @@ document.addEventListener('DOMContentLoaded', () => {
     Array.from(document.querySelectorAll('.js-tabs [data-bs-toggle="tab"]')).forEach((tab) => {
         new Tab(tab);
     });
+
+
+
+    Array.from(document.querySelectorAll('.js-video-preview')).map(item => {
+        return new VideoObject(item);
+    }).forEach(video => {
+        video.bindAction('click',() => {
+            video.insertFrame();
+        })
+    })
 
     /*Array.from(document.querySelectorAll('.js-modal')).forEach(modal => {
         new Modal(modal);
