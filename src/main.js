@@ -4,6 +4,7 @@ import Collapse from 'bootstrap/js/src/collapse';
 import Tab from 'bootstrap/js/src/tab';
 import Modal from 'bootstrap/js/src/modal';
 import VideoObject from "@/js/video-object";
+import FetchIt from "@/js/fetchit";
 
 document.addEventListener('DOMContentLoaded', () => {
     Array.from(document.querySelectorAll('.js-carousel-container')).forEach((carousel) => {
@@ -28,11 +29,15 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     })
 
-    /*Array.from(document.querySelectorAll('.js-modal')).forEach(modal => {
-        new Modal(modal);
-    })*/
+    Array.from(document.querySelectorAll('.js-modal')).forEach(modal => {
+        modal.__modal = new Modal(modal);
+    });
 
-    new Modal('.js-modal');
+    Array.from(document.querySelectorAll('form[data-fetchit]')).forEach(form => {
+        const config = JSON.parse(form.dataset.config || '{}');
+        config.action = form.dataset.fetchit;
+        FetchIt.create(form, config);
+    })
 
     if (window.ymaps3) {
         ymaps3.ready.then(() => {
