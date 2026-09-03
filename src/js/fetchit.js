@@ -38,7 +38,7 @@ export default class FetchIt {
     }
 
     prepareEvents() {
-        this.form.addEventListener('submit', async e => {
+        this.form.addEventListener('submit', (e) => {
             e.preventDefault();
 
             this.formData = new FormData(this.form);
@@ -61,27 +61,10 @@ export default class FetchIt {
 
             this.disableFields();
 
-            try {
-                const query = await fetch(this.request, { body: this.formData });
-                const response = await query.json();
-
-                const afterEvent = new CustomEvent(FetchIt.events.after, {
-                    cancelable: true,
-                    detail: {
-                        form: this.form,
-                        formData: this.formData,
-                        response,
-                        fetchit: this,
-                    },
-                });
-
-                if (!document.dispatchEvent(afterEvent)) {
-                    return;
-                }
-
-                if (!response.success) {
-
-                    const errorEvent = new CustomEvent(FetchIt.events.error, {
+            fetch(this.request, { body: this.formData })
+                .then((query) => query.json())
+                .then((response) => {
+                    const afterEvent = new CustomEvent(FetchIt.events.after, {
                         cancelable: true,
                         detail: {
                             form: this.form,
@@ -91,44 +74,61 @@ export default class FetchIt {
                         },
                     });
 
-                    if (!document.dispatchEvent(errorEvent)) {
+                    if (!document.dispatchEvent(afterEvent)) {
                         return;
                     }
 
-                    for (const [ name, message ] of Object.entries(response.data)) {
-                        this.setError(name, message);
+                    if (!response.success) {
+                        const errorEvent = new CustomEvent(FetchIt.events.error, {
+                            cancelable: true,
+                            detail: {
+                                form: this.form,
+                                formData: this.formData,
+                                response,
+                                fetchit: this,
+                            },
+                        });
+
+                        if (!document.dispatchEvent(errorEvent)) {
+                            return;
+                        }
+
+                        for (const [ name, message ] of Object.entries(response.data)) {
+                            this.setError(name, message);
+                        }
+
+                        return;
                     }
 
-                    return;
-                }
+                    this.clearErrors();
 
-                this.clearErrors();
+                    const successEvent = new CustomEvent(FetchIt.events.success, {
+                        detail: {
+                            form: this.form,
+                            formData: this.formData,
+                            response,
+                            fetchit: this,
+                        },
+                    });
 
-                const successEvent = new CustomEvent(FetchIt.events.success, {
-                    detail: {
-                        form: this.form,
-                        formData: this.formData,
-                        response,
-                        fetchit: this,
-                    },
+                    if (!document.dispatchEvent(successEvent)) {
+                        return;
+                    }
+
+                    if (typeof window.grecaptcha !== 'undefined') {
+                        window.grecaptcha.reset();
+                    }
+
+                    if (this.config.clearFieldsOnSuccess) {
+                        this.form.reset();
+                    }
+                })
+                .catch(e => {
+                    console.error(e);
+                })
+                .finally(() => {
+                    this.enableFields();
                 });
-
-                if (!document.dispatchEvent(successEvent)) {
-                    return;
-                }
-
-                if (typeof window.grecaptcha !== 'undefined') {
-                    window.grecaptcha.reset();
-                }
-
-                if (this.config.clearFieldsOnSuccess) {
-                    this.form.reset();
-                }
-            } catch (e) {
-                console.error(e);
-            } finally {
-                this.enableFields();
-            }
         });
 
         this.form.addEventListener('reset', () => {
