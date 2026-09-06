@@ -53,7 +53,7 @@ module.exports = (env, argv) => {
                         ],
                         // Предотвращаем кэширование в dev режиме
                         preventIndent: true,
-                        inlineRequires: /\/(img|content)\//,
+                        inlineRequires: /\/(img|content|icons)\//,
                     },
                 },
                 {
@@ -82,6 +82,9 @@ module.exports = (env, argv) => {
                     generator: {
                         //filename: 'img/[hash:10][ext][query]'
                         filename: (pathData) => {
+                            if (pathData.filename.indexOf('/favicon.ico') >= 0) {
+                                return '[name][ext][query]';
+                            }
                             const filename = pathData.filename;
                             const relativePath = filename.replace(/^\/?src\//, '').split('/').slice(0, -1).join('/');
 

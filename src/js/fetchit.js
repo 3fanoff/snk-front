@@ -12,6 +12,7 @@ export default class FetchIt {
         error: 'fetchit:error',
         after: 'fetchit:after',
         reset: 'fetchit:reset',
+        catch: 'fetchit:catch',
     }
 
     constructor (form, config) {
@@ -61,7 +62,10 @@ export default class FetchIt {
 
             this.disableFields();
 
-            fetch(this.request, { body: this.formData })
+            const abortControl = new AbortController();
+            const timeoutId = setTimeout(() => abortControl.abort(), 12000);
+
+            fetch(this.request, { body: this.formData, signal: abortControl.signal })
                 .then((query) => query.json())
                 .then((response) => {
                     const afterEvent = new CustomEvent(FetchIt.events.after, {
@@ -125,8 +129,20 @@ export default class FetchIt {
                 })
                 .catch(e => {
                     console.error(e);
+                    const catchEvent = new CustomEvent(FetchIt.events.catch, {
+                        detail: {
+                            form: this.form,
+                            fetchit: this,
+                            formData: this.formData,
+                        }
+                    });
+
+                    document.dispatchEvent(catchEvent);
+                    this.clearErrors();
+                    this.form.reset();
                 })
                 .finally(() => {
+                    clearTimeout(timeoutId);
                     this.enableFields();
                 });
         });
