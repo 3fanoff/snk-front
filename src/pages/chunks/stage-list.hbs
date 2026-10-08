@@ -1,12 +1,21 @@
 <section class="container layout-container">
-    <h2 class="layout-title">{{{heading}}}</h2>
+    <h2 class="layout-title {{heading_class}}">{{{heading}}}</h2>
     {{#if subtitle}}<p class="layout-subtitle">{{{subtitle}}}</p>{{/if}}
     <div class="grid gap-3 gap-lg-{{#if gap_lg}}{{gap_lg}}{{else}}1{{/if}}">
         {{#each stages}}
             <div class="g-col-12 g-col-lg-{{math 'divide' 12 ../stages.length }} card card--type6 card--type3-outline">
                 <div class="card-body">
-                    <p class="card-title h5">{{#unless ../noindex}}{{math 'plus' @index 1}}. {{/unless}}{{{name}}}</p>
-                    <p class="card-text">{{{text}}}</p>
+                    <p class="card-title {{#if ../title_h}}{{{../title_h}}}{{else}}h5{{/if}}">{{#unless ../noindex}}{{math 'plus' @index 1}}. {{/unless}}{{{name}}}</p>
+                    {{#if (typeof text 'array')}}
+                        <ul class="card-text">
+                            {{#each text}}
+                                <li>{{{.}}}</li>
+                            {{/each}}
+                        </ul>
+                    {{else}}
+                        <p class="card-text">{{{text}}}</p>
+                    {{/if}}
+
                     {{#if btn}}
                         <button type="button" class="btn btn-primary w-100">{{btn}}</button>
                     {{/if}}

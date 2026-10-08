@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 const CssMqpackerPlugin = require('css-mqpacker-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = (env, argv) => {
     const pages = require("./pages");
@@ -71,6 +72,10 @@ module.exports = (env, argv) => {
                                     tag: "source",
                                     attribute: "srcset",
                                     type: "src",
+                                },
+                                {
+                                    attribute: "data-poster",
+                                    type: "src"
                                 }
                             ],
                         },
@@ -199,7 +204,13 @@ module.exports = (env, argv) => {
                 }),
             ]
         },
-        plugins: pages.map((page) => {
+        plugins: [
+            new CopyWebpackPlugin({
+                patterns: [
+                    { from: path.resolve(__dirname, 'src/content/gallery'), to: path.resolve(__dirname, 'dist/content/gallery') }
+                ]
+            })
+        ].concat(pages.map((page) => {
             return new HtmlWebpackPlugin({
                 title: page.title,
                 template: page.template,
@@ -221,7 +232,7 @@ module.exports = (env, argv) => {
                     useShortDoctype: true,
                 },
             })
-        }).concat(
+        })).concat(
             isProduction ? [
                 new MiniCssExtractPlugin({
                     filename: 'styles.[hash:10].css',

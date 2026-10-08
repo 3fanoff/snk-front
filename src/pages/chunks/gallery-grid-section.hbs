@@ -1,0 +1,5 @@
+<section class="container layout-container {{#if isCarousel}}position-relative js-carousel-container{{/if}}">
+    <h2 class="layout-title">{{{heading}}}</h2>
+    <p class="layout-subtitle">{{{subtitle}}}</p>
+    {{> gallery-grid images=images isCarousel=isCarousel}}
+</section>

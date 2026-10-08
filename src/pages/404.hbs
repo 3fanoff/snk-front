@@ -1,0 +1,31 @@
+{{#> layout/base-layout}}
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Intel+One+Mono:wght@600&display=swap');
+
+        .error-404 {
+            font-family: "Intel One Mono", monospace;
+            font-optical-sizing: auto;
+            font-weight: 600;
+            font-style: normal;
+
+            font-size: 7.5rem;
+            color: var(--pvp-primary);
+            line-height: 1.1;
+
+            @media (min-width: 1024px) {
+                font-size: 12.5rem;
+            }
+        }
+    </style>
+    <section class="container layout-container text-center">
+        <div class="error-404">404</div>
+        <h1 class="my-3">Что-то пошло не так...</h1>
+        <p class="mt-2 mb-4">К сожалению, мы не нашли нужную вам страницу.<br>Вы можете перейти на <a href="#">Главную</a> или посмотреть
+            наш <a href="#">Каталог</a> оборудования</p>
+        <div class="d-flex d-jc-center gap-4 gap-lg-6">
+            <a href="#" class="btn btn-primary" >На главную</a>
+            <a href="#" class="btn btn-outline-primary" >Смотреть каталог</a>
+        </div>
+    </section>
+
+{{/layout/base-layout}}

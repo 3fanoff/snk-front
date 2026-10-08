@@ -4,7 +4,8 @@
         {{#each items}}
             <div class="g-col-12 g-col-lg-4 card card--type6 card--bg-primary">
                 <div class="card-body d-ac-center">
-                    <p class="card-title h3 d-flex d-ai-center gap-1"><i class="i-{{icon}}"></i>{{{title}}}</p>
+                    <p class="card-title h3 d-flex gap-1 {{#ifeq ../style 'column'}}flex-column{{else}}d-ai-center{{/ifeq}}">
+                        <i class="i-{{icon}}"></i>{{{title}}}</p>
                     {{#if text}}
                         <p class="card-text">{{{text}}}</p>
                     {{/if}}

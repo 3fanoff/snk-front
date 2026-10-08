@@ -13,6 +13,7 @@
 @import 'custom/bs/card';
 @import 'custom/bs/pagination';
 @import 'custom/bs/type';
+@import "custom/bs/navbar";
 
 .input-group {
     background: var(--#{$prefix}body-bg);
@@ -46,6 +47,15 @@
     a {
         text-decoration: none;
     }
+
+    @include media-breakpoint-up(lg) {
+        &--zoom-150_lg {
+            zoom: 1.5;
+            //transform: scale(1.5);
+            //transform-origin: 0 0;
+        }
+    }
+
 }
 
 .toggle-check[data-mob] {
@@ -94,6 +104,53 @@ a[href^='mailto:'] {
         margin: calc(var(--#{$prefix}border-width) * -1);
         width: calc(100% + var(--#{$prefix}border-width) * 2);
     }
+}
+
+.clamped-text {
+    line-clamp: var(--#{$c-prefix}clamped-size);
+    -webkit-line-clamp: var(--#{$c-prefix}clamped-size);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.pvp-card--min-h {
+    min-height: var(--#{$c-prefix}card-min-height);
+    height: auto;
+}
+
+.article-head {
+    padding-bottom: #{rfs-value(55px)};
+    &__meta {
+        @extend .vstack;
+        color: $middle;
+        gap: $spacer * .5;
+    }
+
+    @include media-breakpoint-up(lg) {
+        padding-bottom: #{rfs-value(88px)};
+        &__meta {
+            gap: 0;
+        }
+    }
+}
+
+.tag-pills {
+    margin-right: calc(var(--#{$prefix}gutter-x) * -0.5);
+    overflow-x: auto;
+    gap: #{$spacer * .25};
+    flex-wrap: nowrap;
+
+    @include media-breakpoint-up(lg) {
+        --#{$prefix}nav-link-padding-x: #{$spacer * 2.5};
+
+        margin-right: 0;
+        gap: #{$spacer * .5};
+    }
+}
+
+.reset-fs {
+    --#{$prefix}body-font-size: #{$font-size-base};
 }
 
 //always end of the styles

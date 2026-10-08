@@ -1,0 +1,19 @@
+.navbar-nav {
+    .dropdown-toggle {
+        .caret {
+            --#{$c-prefix}icon-size: #{$font-size-base};
+            --#{$c-prefix}icon-color: var(--#{$prefix}nav-link-color);
+        }
+
+        &.active {
+            .caret {
+                --#{$c-prefix}icon-color: var(--#{$prefix}navbar-active-color);
+            }
+        }
+        &.show {
+            .caret {
+                transform: rotate(90deg);
+            }
+        }
+    }
+}

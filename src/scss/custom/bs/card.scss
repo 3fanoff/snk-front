@@ -42,7 +42,7 @@
 }
 
 .card--type3 {
-    --#{$prefix}card-text-color: #{$dark};
+    --#{$prefix}card-color: #{$dark};
     --#{$prefix}card-title-spacer-y: #{$spacer * 0.75};
     --#{$prefix}card-spacer-y: #{$spacer * 1.25};
     --#{$prefix}card-spacer-x: #{$spacer * 1.25};
@@ -52,7 +52,7 @@
         --#{$prefix}card-border-color: #{$primary};
         --#{$prefix}card-bg: none;
         --#{$prefix}card-title-color: #{$primary};
-        --#{$prefix}card-text-color: #{$body-color};
+        --#{$prefix}card-color: #{$body-color};
 
         cursor: default;
     }
@@ -74,7 +74,7 @@
 
 .card--type5 {
     --#{$prefix}card-height: 100%;
-    --#{$prefix}card-text-color: #{$dark};
+    --#{$prefix}card-color: #{$dark};
     --#{$prefix}card-spacer-y: #{$spacer * 1.25};
     --#{$prefix}card-spacer-x: #{$spacer * 1.25};
 
@@ -91,7 +91,7 @@
 
 .card--type6 {
     --#{$prefix}card-height: 100%;
-    --#{$prefix}card-text-color: #{$body-color};
+    --#{$prefix}card-color: #{$body-color};
     --#{$prefix}card-title-spacer-y: #{$spacer * 0.75};
     --#{$prefix}card-spacer-y: #{$spacer * 1.25};
     --#{$prefix}card-spacer-x: #{$spacer * 1.25};
@@ -121,8 +121,33 @@
     }
 }
 
+.card--blog {
+    --#{$prefix}card-title-spacer-y: 0.75rem;
+    --#{$prefix}card-spacer-x: 0;
+    --#{$prefix}card-spacer-y: 1.25rem;
+    --#{$prefix}card-color: var(--#{$prefix}body-color);
+    --#{$prefix}card-cap-color: #{$dark};
+    --#{$prefix}card-inner-border-radius: calc( var(--#{$prefix}border-radius) - (var(--#{$prefix}border-width)) );
+
+    background: none;
+}
+
+.card--blog-2 {
+    --#{$prefix}card-color: var(--#{$prefix}body-color);
+    --#{$prefix}card-border-radius: var(--#{$prefix}border-radius);
+    --#{$prefix}card-border-width: 0;
+    --#{$prefix}card-spacer-y: #{$spacer * 1.25};
+    --#{$prefix}card-spacer-x: #{$spacer * 1.25};
+
+    @include media-breakpoint-up(lg) {
+        --#{$prefix}card-title-spacer-y: #{$spacer * 1.25};
+        --#{$prefix}card-spacer-y: 0;
+        --#{$prefix}card-spacer-x: #{$spacer * 1.875};
+    }
+}
+
 .card--body-color {
-    --#{$prefix}card-text-color: #{$body-color};
+    --#{$prefix}card-color: var(--#{$prefix}body-color);
 }
 
 .card--bg-blue {
@@ -131,7 +156,7 @@
 
 .card--bg-primary {
     --#{$prefix}card-bg: #{$primary};
-    --#{$prefix}card-text-color: #{$white};
+    --#{$prefix}card-color: #{$white};
     --#{$prefix}card-title-color: #{$white};
     --#{$c-prefix}icon-color: #{$white};
 }

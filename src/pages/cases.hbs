@@ -1,0 +1,90 @@
+{{#> layout/base-layout}}
+    {{> breadcrumbs }}
+
+    <section class="container layout-container">
+        <h1 class="layout-title">Кейсы</h1>
+        <p class="layout-subtitle">Мы собрали кейсы, которые показывают, как наши приборы решают задачи<br>
+            ваших коллег из металлургии, переработки лома, машиностроения и лабораторий</p>
+
+        <div class="vstack gap-5 gap-lg-6">
+            <div class="card card--blog-2">
+                <div class="row gx-3">
+                    <div class="col-lg-6">
+                        <img src="https://imgplaceholdr.com/560x377/cccccc/969696/webp?text_size=40" class="w-100 rounded" alt="">
+                    </div>
+                    <div class="col-lg-6 d-ac-center">
+                        <div class="card-body">
+                            <h3 class="card-title">Металлургический завод: входной контроль легированной стали</h3>
+                            <p class="card-text mb-1 mb-lg-3">
+                                <strong>Задача:</strong><br>
+                                Контроль 20 партий легированной стали от разных поставщиков. Раньше отправляли образцы в стороннюю лабораторию — ждали 3 дня.
+                            </p>
+                            <p class="card-text mb-1 mb-lg-3">
+                                <strong>Решение:</strong><br>
+                                Поставили портативный РФА-анализатор Olympus Vanta. Провели обучение операторов. Разработали методику для каждого типа стали.
+                            </p>
+                            <a href="#" class="btn btn-primary d-block d-lg-inline-block">Смотреть кейс</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card card--blog-2">
+                <div class="row gx-3">
+                    <div class="col-lg-6">
+                        <img src="https://imgplaceholdr.com/560x377/cccccc/969696/webp?text_size=40" class="w-100 rounded" alt="">
+                    </div>
+                    <div class="col-lg-6 d-ac-center">
+                        <div class="card-body">
+                            <h3 class="card-title">Переработчик лома: сортировка цветных металлов</h3>
+                            <p class="card-text mb-1 mb-lg-3">
+                                <strong>Задача:</strong><br>
+                                Точное разделение лома алюминия и меди на приёмке. Ошибки в сортировке приводили к потерям до 15% выручки.
+                            </p>
+                            <p class="card-text mb-1 mb-lg-3">
+                                <strong>Решение:</strong><br>
+                                Приобрели портативный анализатор SciAps X-550. Настроили быстрый режим на основные марки сплавов.
+                            </p>
+                            <a href="#" class="btn btn-primary d-block d-lg-inline-block">Смотреть кейс</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card card--blog-2">
+                <div class="row gx-3">
+                    <div class="col-lg-6">
+                        <img src="https://imgplaceholdr.com/560x377/cccccc/969696/webp?text_size=40" class="w-100 rounded" alt="">
+                    </div>
+                    <div class="col-lg-6 d-ac-center">
+                        <div class="card-body">
+                            <h3 class="card-title">Сертификационная лаборатория: расширение спектра услуг</h3>
+                            <p class="card-text mb-1 mb-lg-3">
+                                <strong>Задача:</strong><br>
+                                Клиенты часто просили анализировать твёрдые сплавы  и порошки, а оборудование лаборатории не позволяло.
+                            </p>
+                            <p class="card-text mb-1 mb-lg-3">
+                                <strong>Решение:</strong><br>
+                                Оснастили лабораторию стационарным оптико-эмиссионным спектрометром СТИЛ. Провели поверку и аттестацию методик.
+                            </p>
+                            <a href="#" class="btn btn-primary d-block d-lg-inline-block">Смотреть кейс</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <ul class="pagination d-jc-center mt-6" aria-label="Навигация по страницам">
+            <li class="page-item"><a href="#" class="page-link"><i class="i-left page-link-i"></i></a></li>
+            <li class="page-item active" aria-current="page"><a href="#" class="page-link">1</a></li>
+            <li class="page-item" aria-current="page"><a href="#" class="page-link">2</a></li>
+            <li class="page-item" aria-current="page"><a href="#" class="page-link">3</a></li>
+            <li class="page-item" aria-current="page"><span class="page-div">...</span></li>
+            <li class="page-item" aria-current="page"><a href="#" class="page-link">10</a></li>
+            <li class="page-item"><a href="#" class="page-link"><i class="i-right page-link-i"></i></a></li>
+        </ul>
+    </section>
+
+    {{> card-primary-iconed heading="Что вам даёт чтение кейсов?" items=data.iconedList style="column"}}
+
+
+{{/layout/base-layout}}

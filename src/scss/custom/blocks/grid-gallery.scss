@@ -1,8 +1,11 @@
+:root {
+    --#{$c-prefix}gallery-width: #{calc(50% - #{$spacer * divide(0.75, 2)})};
+    --#{$c-prefix}gallery-width-lg: 30.526%;
+    --#{$c-prefix}gallery-width-v-lg: 17.543%;
+}
+
 .grid-gallery {
     @extend .css-carousel;
-
-    //grid-template-columns: repeat(16, 1fr);
-    //grid-template-rows: 1fr;
 
     gap: $spacer * 0.75;
 
@@ -15,48 +18,49 @@
 
         @extend .css-carousel-item;
 
-        //grid-column: span 5;
-        //width: calc((5.263% * 5) + #{$spacer * .75 * 4});
-
         overflow: hidden;
         @include border-radius(var(--#{$prefix}border-radius));
-        width: calc(50% - #{$spacer * divide(0.75, 2)});
+        width: var(--#{$c-prefix}gallery-width);
 
         img {
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: auto;
+            //width: auto;
             height: auto;
             min-width: 100%;
             min-height: 100%;
         }
 
-        &:hover img {
+        &:hover img[data-src] {
             filter: brightness(0.9);
+            cursor: pointer;
         }
     }
     @include media-breakpoint-down(lg) {
-        &--wrap-xs {
+        &--wrap_xs {
             flex-wrap: wrap;
         }
     }
     @include media-breakpoint-up(lg) {
-        column-gap: 1.287%;
+        //column-gap: 1.287%;
 
         &__item {
-            width: 30.526%;
+            width: var(--#{$c-prefix}gallery-width-lg);
 
             &.vertical {
                 --#{$prefix}aspect-ratio: 129%;
-                //grid-column: span 3;
-                //width: calc((5.263% * 3) + #{$spacer * .75 * 2});
-                width: 17.543%;
+                width: var(--#{$c-prefix}gallery-width-v-lg);
             }
         }
 
-        &--wrap-lg {
+        &--wrap_lg {
             flex-wrap: wrap;
         }
     }
+}
+
+.grid-gallery--v2 {
+    --#{$c-prefix}gallery-width-lg: 38.921%;
+    --#{$c-prefix}gallery-width-v-lg: 22.368%;
 }

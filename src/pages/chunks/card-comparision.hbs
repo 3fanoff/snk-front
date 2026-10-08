@@ -1,14 +1,14 @@
 <section class="container layout-container">
-    {{#tag heading_tag 'layout-title'}}
+    {{#tag heading_tag (concat 'layout-title ' heading_class)}}
         {{{heading}}}
     {{/tag}}
     {{#if subtitle}}
         {{#tag 'p' 'layout-subtitle'}}{{{subtitle}}}{{/tag}}
-    {{/if}}
+    {{else}}<div></div>{{/if}}
     <div class="row row-cols-1 row-cols-lg-2 gy-5 gy-lg-0 gx-lg-3">
-        {{#each data.cards}}
+        {{#each cards}}
             <div class="col">
-                <div class="card card--type5{{#ifeven (math 'plus' @index 1)}} card--bg-blue{{/ifeven}} card--body-color">
+                <div class="card card--type5 card--bg-{{bg}} card--body-color">
                     <div class="card-body">
                         <h3 class="card-title">{{{title}}}</h3>
                         <p class="card-text mb-1">{{{text}}}</p>
