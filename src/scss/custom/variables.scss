@@ -20,9 +20,12 @@ $h5-lg-font-size: $font-size-base * 1.125;
     --#{$c-prefix}icon-size: #{$c-icon-size};
     --#{$c-prefix}icon-color: #{$c-primary};
     --#{$c-prefix}play-btn-size: #{rfs-value(90px)};
+    --#{$c-prefix}play-arrow-size: 24%;
     --#{$c-prefix}cont-bottom: #{$c-container-margin-bottom};
     --#{$c-prefix}cont-top-first: #{$c-container-margin-top};
     --#{$c-prefix}title-bottom: #{$c-title-margin-bottom};
+    --#{$c-prefix}clamped-size: 2;
+    --#{$c-prefix}card-min-height: #{11.5rem};
 
     @include media-breakpoint-up(lg) {
         --#{$c-prefix}cont-bottom: #{$c-container-margin-bottom-lg};

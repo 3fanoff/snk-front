@@ -75,7 +75,8 @@ html {
 
     @include media-breakpoint-up(lg) {
         &__header {
-            background-position-y: top;
+            //background-position-y: top;
+            background-position-y: bottom;
             background-size: auto;
             padding-top: rfs-value(10px);
 
@@ -84,6 +85,7 @@ html {
                 background-color: initial;
 
                 padding-bottom: rfs-value(10px);
+                background-position-y: -1rem;
             }
         }
 
@@ -112,6 +114,10 @@ html {
         &-container {
             --#{$prefix}gutter-x: 0;
             --#{$prefix}gutter-y: 0;
+        }
+
+        &-thin ~ &-container {
+            --#{$c-prefix}cont-bottom: #{rfs-value(60px)};
         }
     }
 }

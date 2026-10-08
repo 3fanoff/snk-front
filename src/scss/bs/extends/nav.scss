@@ -23,3 +23,15 @@
         }
     }
 }
+
+.nav-pills {
+    --#{$prefix}nav-link-padding-y: .5rem;
+    --#{$prefix}nav-link-color: $body-color;
+
+    .nav-link {
+        corner-shape: initial;
+        background: $light;
+    }
+}
+
+

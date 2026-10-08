@@ -23,6 +23,7 @@ $enable-dark-mode: false;
 $enable-cssgrid: true;
 $enable-rfs: false;
 $enable-important-utilities: false;
+$enable-caret: false;
 
 $variable-prefix: pvp-;
 $prefix: $variable-prefix;
@@ -39,6 +40,7 @@ $spacers: (
 );
 
 $body-color: #212121;
+$body-bg:                   $white;
 
 $grid-breakpoints: (
     xs: 0,
@@ -141,10 +143,13 @@ $btn-disabled-opacity: 1;
 $btn-close-width: 2rem;
 $btn-close-padding-x: 0;
 $btn-close-color: $body-color;
-$btn-close-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$btn-close-color}'><path d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414'/></svg>");
+$btn-close-opacity:          1;
+//$btn-close-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$btn-close-color}'><path d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414'/></svg>");
 $btn-close-bg: url("data:image/svg+xml,<svg width='32' height='32' viewBox='0 0 32 32' fill='#{$btn-close-color}' xmlns='http://www.w3.org/2000/svg'><path d='M25 7L7 25' stroke='#212121' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/><path d='M25 25L7 7' stroke='#{$btn-close-color}' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/></svg>");
 
 $icon-link-gap: 0.625rem;
+
+//$caret-width:                 1rem;
 
 $form-feedback-icon-valid: none;
 $form-feedback-icon-invalid: none;
@@ -170,6 +175,9 @@ $nav-tabs-link-hover-border-color: transparent transparent $nav-tabs-border-colo
 $nav-tabs-link-active-color: var(--#{$prefix}primary);
 $nav-tabs-link-active-bg: var(--#{$prefix}body-bg);
 $nav-tabs-link-active-border-color: transparent transparent $primary;
+
+$nav-pills-link-active-color:       $white;
+$nav-pills-link-active-bg:          $body-color;
 
 $card-spacer-y: 0.75rem;
 $card-spacer-x: 0.75rem;
@@ -225,3 +233,19 @@ $table-bg: transparent;
 $table-cell-padding-y: 1.25rem;
 $table-cell-padding-x: 1.25rem;
 //$table-border-color:          #D9D9D9;
+
+$offcanvas-horizontal-width:        100vw;
+$offcanvas-padding-y:               $spacer * .75;
+$offcanvas-padding-x:               $spacer * 1.25;
+
+$dropdown-font-size:                var(--#{$prefix}body-font-size);
+$dropdown-border-radius:            0;
+$dropdown-inner-border-radius:      0;
+
+$dropdown-padding-y:                $spacer * .375;
+
+$dropdown-item-padding-y:           $spacer * .375;
+$dropdown-item-padding-x:           $spacer;
+
+$dropdown-link-active-color: $primary;
+$dropdown-link-active-bg:           $body-bg;

@@ -20,6 +20,35 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
+    Array.from(document.querySelectorAll('.js-gallery')).forEach((gallery) => {
+        gallery.addEventListener('click', (e) => {
+            import('./js/gallery').then(module => {
+                const lightGallery = module.lightGallery(gallery, {
+                    selector: '[data-src]',
+                    enableDrag: false,
+                    counter: false,
+                    download: false,
+                    getCaptionFromTitleOrAlt: false,
+                });
+                if (e.target.dataset.src) {
+                    const index = lightGallery.galleryItems.findIndex((item) => item.src === e.target.dataset.src);
+                    lightGallery.openGallery(index);
+                }
+            });
+        }, {once: true});
+    });
+
+    Array.from(document.querySelectorAll('.js-video-gallery-item')).forEach((video) => {
+        import('./js/gallery').then(module => {
+            module.lightGallery(video, {
+                selector: 'this',
+                iframeMaxWidth: '1024px',
+                iframeMaxHeight: '600px',
+                zoomFromOrigin: false,
+                download: false,
+            })
+        })
+    })
 
     Array.from(document.querySelectorAll('.js-video-preview')).map(item => {
         return new VideoObject(item);
@@ -31,6 +60,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
     Array.from(document.querySelectorAll('.js-modal')).forEach(modal => {
         modal.__modal = new Modal(modal);
+    });
+
+    Array.from(document.querySelectorAll('.js-offcanvas')).forEach(offcanvas => {
+        import('bootstrap/js/src/offcanvas').then(module => {
+            new module.default(offcanvas);
+        });
+    })
+
+    Array.from(document.querySelectorAll('.js-nav-dropdown-check')).forEach(dropdownCheck => {
+        document.addEventListener('dropdown.uncheck', (e) => {
+            if (e.detail.element === dropdownCheck || !dropdownCheck.checked) return;
+            dropdownCheck.checked = false;
+            dropdownCheck.parentNode.querySelectorAll('.js-for-dropdown').forEach(dropdownElem => {
+                dropdownElem.classList['remove']('show');
+            });
+        })
+        dropdownCheck.addEventListener('change', (e) => {
+                const dropdownUncheckEvent = new CustomEvent('dropdown.uncheck', {
+                    detail: { element: e.target }
+                });
+                document.dispatchEvent(dropdownUncheckEvent);
+                dropdownCheck.parentNode.querySelectorAll('.js-for-dropdown').forEach(dropdownElem => {
+                    dropdownElem.classList[dropdownCheck.checked ? 'add' : 'remove']('show');
+                });
+        });
     });
 
     Array.from(document.querySelectorAll('form[data-fetchit]')).forEach(form => {

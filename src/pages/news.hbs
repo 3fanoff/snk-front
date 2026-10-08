@@ -1,0 +1,42 @@
+{{#> layout/base-layout}}
+    {{> breadcrumbs }}
+
+    <section class="container layout-container">
+        <h1 class="layout-title">Новости компании</h1>
+        <p class="layout-subtitle">Новое оборудование, акции, участие в выставках, <br>новые партнёрства — всё, что делает работу с нами лучше</p>
+        <div class="grid gap-3 row-gap-lg-6 column-gap-lg-3">
+            {{#times 4}}
+                <div class="card card--blog g-col-12 g-col-lg-4">
+                    <a href="#" class="card-img ratio ratio-4x3"><img src="../content/articles/vosproizvodimost2.jpg" alt="serv1" width="365" height="274" /></a>
+                    <div class="card-body pb-1">
+                        <h4 class="card-title"><a href="#">«Металлообработка. Сварка-Урал - 2026»: ПВП СНК решает задачи промышленной столицы России</a></h4>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-text">12.06.2026</span>
+                    </div>
+                </div>
+                <div class="card card--blog g-col-12 g-col-lg-4">
+                    <a href="#" class="card-img ratio ratio-4x3"><img src="../content/articles/st-image-3.png" alt="serv1" width="365" height="274" /></a>
+                    <div class="card-body pb-1">
+                        <h4 class="card-title"><a href="#">ПВП СНК на «Металл-Экспо’2025»: Контроль качества по-русски — точно, надежно, доступно</a></h4>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-text">06.06.2026</span>
+                    </div>
+                </div>
+            {{/times}}
+        </div>
+
+        <ul class="pagination d-jc-center mt-6" aria-label="Навигация по страницам">
+            <li class="page-item"><a href="#" class="page-link"><i class="i-left page-link-i"></i></a></li>
+            <li class="page-item active" aria-current="page"><a href="#" class="page-link">1</a></li>
+            <li class="page-item" aria-current="page"><a href="#" class="page-link">2</a></li>
+            <li class="page-item" aria-current="page"><a href="#" class="page-link">3</a></li>
+            <li class="page-item" aria-current="page"><span class="page-div">...</span></li>
+            <li class="page-item" aria-current="page"><a href="#" class="page-link">10</a></li>
+            <li class="page-item"><a href="#" class="page-link"><i class="i-right page-link-i"></i></a></li>
+        </ul>
+    </section>
+
+
+{{/layout/base-layout}}

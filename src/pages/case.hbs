@@ -1,0 +1,52 @@
+{{#> layout/base-layout}}
+
+    <span class="layout-thin"></span>
+
+    {{> card-comparision
+            nocolors=true
+            cards=data.cards_1
+            heading="1. Заказчик и его задача"
+            heading_class="text-start"
+            heading_tag="h2" }}
+
+    <section class="container layout-container">
+        <h2 class="layout-title text-start">2. Почему выбрали нас</h2>
+        <p class="mb-3">Завод уже работал с другими поставщиками, но у них не было собственного оборудования для демонстрации и обучения.</p>
+        <h3>Что мы предложили:</h3>
+        <ul class="mb-6">
+            <li>Портативный РФА-анализатор Olympus Vanta — готовый к работе, с действующей поверкой</li>
+            <li>Выезд инженера на завод для обучения операторов (2 дня)</li>
+            <li>Разработку методики для каждого типа стали (персонализированная настройка калибровки)</li>
+        </ul>
+        <h3>Фактор доверия:</h3>
+        <p>У нас уже был опыт внедрения на аналогичных предприятиях — мы показали заказчику референс-лист.</p>
+    </section>
+
+    {{> stage-list
+            stages=data.stage
+            heading_class="text-start"
+            heading="3. Процесс внедрения "
+            noindex=true
+            title_h="h3"
+            }}
+
+    {{> card-comparision
+            nocolors=true
+            cards=data.cards_2
+            heading="4. Результаты"
+            heading_class="text-start"
+            heading_tag="h2" }}
+
+    {{> gallery-grid-section images=data.gallery isCarousel=true className="grid-gallery--v2 js-gallery"}}
+
+    <section class="container layout-container">
+        <h2 class="layout-title text-start">5. Отзыв клиента</h2>
+        <div class="card card--type5 card--body-color">
+            <div class="card-body">
+                <p class="card-title h3"><i>«Раньше мы теряли по 2–3 дня на подтверждение состава каждой партии. Теперь оператор выходит на склад с прибором и через 5 минут выдаёт заключение. Это позволило нам ускорить производство и сэкономить на логистике»</i></p>
+                <p class="card-text">Начальник лаборатории завода</p>
+            </div>
+        </div>
+    </section>
+
+{{/layout/base-layout}}

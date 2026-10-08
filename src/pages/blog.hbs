@@ -1,0 +1,44 @@
+{{#> layout/base-layout}}
+    {{> breadcrumbs }}
+
+    <section class="container layout-container">
+        <h1 class="layout-title">Блог</h1>
+        <p class="layout-subtitle">Статьи, методики, разборы приборов и реальные истории <br>от тех, кто работает на спектрометрах каждый день</p>
+        <div class="grid gap-3 row-gap-lg-6 column-gap-lg-3">
+            {{#times 4}}
+                <div class="card card--blog g-col-12 g-col-lg-4">
+                    <a href="#" class="card-img ratio ratio-4x3"><img src="../content/articles/vosproizvodimost2.jpg" alt="serv1" width="365" height="274" /></a>
+                    <div class="card-body pb-1">
+                        <h4 class="card-title"><a href="#">Геохимия: как&nbsp;находить золото по&nbsp;спутникам с&nbsp;помощью&nbsp;РФА?</a></h4>
+                        <p class="card-text clamped-text">Если перед вами стоит задача найти золото в породе и проанализировать большое количество геохимических проб, эта статья для вас. Узнайте, как быстро и точно определять наличие золота с помощью рентгенофлуоресцентного анализа (РФА).</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-text">12.06.2026</span>
+                    </div>
+                </div>
+                <div class="card card--blog g-col-12 g-col-lg-4">
+                    <a href="#" class="card-img ratio ratio-4x3"><img src="../content/articles/st-image-3.png" alt="serv1" width="365" height="274" /></a>
+                    <div class="card-body pb-1">
+                        <h4 class="card-title"><a href="#">Определение и анализ состава металла: оборудование, ценообразование</a></h4>
+                        <p class="card-text clamped-text">В этой статье мы подробно расскажем о химанализе и его важности при работе с металлическими изделиями, а также о приборах, без которых этот анализ невозможен.</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-text">06.06.2026</span>
+                    </div>
+                </div>
+            {{/times}}
+        </div>
+
+        <ul class="pagination d-jc-center mt-6" aria-label="Навигация по страницам">
+            <li class="page-item"><a href="#" class="page-link"><i class="i-left page-link-i"></i></a></li>
+            <li class="page-item active" aria-current="page"><a href="#" class="page-link">1</a></li>
+            <li class="page-item" aria-current="page"><a href="#" class="page-link">2</a></li>
+            <li class="page-item" aria-current="page"><a href="#" class="page-link">3</a></li>
+            <li class="page-item" aria-current="page"><span class="page-div">...</span></li>
+            <li class="page-item" aria-current="page"><a href="#" class="page-link">10</a></li>
+            <li class="page-item"><a href="#" class="page-link"><i class="i-right page-link-i"></i></a></li>
+        </ul>
+    </section>
+
+
+{{/layout/base-layout}}

@@ -1,0 +1,12 @@
+@import "bootstrap/scss/offcanvas";
+
+.offcanvas-body {
+    .navbar-nav {
+        margin-left: calc(var(--#{$prefix}offcanvas-padding-x) * -1);
+        margin-right: calc(var(--#{$prefix}offcanvas-padding-x) * -1);
+
+        .nav-item {
+            border-bottom: var(--#{$prefix}border-width) solid var(--#{$prefix}border-color);
+        }
+    }
+}

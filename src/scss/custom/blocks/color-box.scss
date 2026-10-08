@@ -25,6 +25,11 @@
         --#{$c-prefix}color-box-padding-y: 1.25rem;
     }
 
+    &--cta {
+        --#{$c-prefix}color-box-padding-x: #{rfs-value(40px)};
+        --#{$c-prefix}color-box-padding-y: #{rfs-value(40px)};
+    }
+
     @include media-breakpoint-up(lg) {
         --#{$c-prefix}color-box-padding-x: 5rem;
         --#{$c-prefix}color-box-padding-y: 5rem;
@@ -32,6 +37,11 @@
         &--min {
             --#{$c-prefix}color-box-padding-x: 1.25rem;
             --#{$c-prefix}color-box-padding-y: 1.25rem;
+        }
+
+        &--cta {
+            --#{$c-prefix}color-box-padding-x: #{rfs-value(80px)};
+            --#{$c-prefix}color-box-padding-y: #{rfs-value(40px)};
         }
 
         &__title {
