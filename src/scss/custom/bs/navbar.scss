@@ -16,4 +16,19 @@
             }
         }
     }
+
+    .dropdown-item {
+        position: relative;
+        padding-left: #{$spacer * 3};
+
+        &::before {
+            width: #{rfs-value(3px)};
+            height: #{rfs-value(3px)};
+            background: var(--#{$prefix}body-color);
+            position: absolute;
+            left: calc(#{$spacer * 2.5} - #{rfs-value(3px)});
+            top: calc(50% - #{rfs-value(1.5px)});
+            content: '';
+        }
+    }
 }
