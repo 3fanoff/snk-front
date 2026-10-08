@@ -12,6 +12,11 @@ module.exports = (env, argv) => {
 
     pages.forEach(page => {
         page.basePath = basePath;
+        if (page.data?.gallery) {
+            page.data.gallery.forEach(item => {
+                item.src = basePath + item.src;
+            });
+        }
     })
 
     console.log('mode', argv.mode);

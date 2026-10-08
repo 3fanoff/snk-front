@@ -112,10 +112,10 @@ let pages = [
         data: {
             colorbox: colorboxData,
             gallery: [
-                { src: '/content/gallery/ser1_1.png', w: 347, h:260 },
-                { src: '/content/gallery/ser4_1.png', w: 201, h:259 },
-                { src: '/content/gallery/ser2_1.png', w: 346, h:260 },
-                { src: '/content/gallery/ser5_1.png', w: 200, h:260 },
+                { src: 'content/gallery/ser1_1.png', w: 347, h:260 },
+                { src: 'content/gallery/ser4_1.png', w: 201, h:259 },
+                { src: 'content/gallery/ser2_1.png', w: 346, h:260 },
+                { src: 'content/gallery/ser5_1.png', w: 200, h:260 },
             ],
             stage: [
                 { name: 'Вы оставляете заявку', text: 'По телефону, почте или через форму на сайте.', btn: 'Оставить заявку' },
@@ -414,12 +414,12 @@ let pages = [
                 }
             ],
             gallery: [
-                { src: '/content/gallery/svarka2026-1.png', w:255, h:340 },
-                { src: '/content/gallery/svarka2026-2.png', w:255, h:340 },
-                { src: '/content/gallery/svarka2026-3.png', w:255, h:340 },
-                { src: '/content/gallery/svarka2026-4.png', w:255, h:340 },
-                { src: '/content/gallery/svarka2026-5.png', w:255, h:340 },
-                { src: '/content/gallery/svarka2026-6.png', w:255, h:340 },
+                { src: 'content/gallery/svarka2026-1.png', w:255, h:340 },
+                { src: 'content/gallery/svarka2026-2.png', w:255, h:340 },
+                { src: 'content/gallery/svarka2026-3.png', w:255, h:340 },
+                { src: 'content/gallery/svarka2026-4.png', w:255, h:340 },
+                { src: 'content/gallery/svarka2026-5.png', w:255, h:340 },
+                { src: 'content/gallery/svarka2026-6.png', w:255, h:340 },
             ],
         }
     },
@@ -438,12 +438,10 @@ let pages = [
         slider: ['slide_5'],
         data: {
             gallery: [
-                { src: '/content/gallery/svarka2026-1.png', w:255, h:340 },
-                { src: '/content/gallery/svarka2026-2.png', w:255, h:340 },
-                { src: '/content/gallery/svarka2026-3.png', w:255, h:340 },
-                { src: '/content/gallery/svarka2026-4.png', w:255, h:340 },
-                { src: '/content/gallery/svarka2026-5.png', w:255, h:340 },
-                { src: '/content/gallery/svarka2026-6.png', w:255, h:340 },
+                { src: 'content/gallery/svarka2026-1.png', w:255, h:340 },
+                { src: 'content/gallery/svarka2026-2.png', w:255, h:340 },
+                { src: 'content/gallery/svarka2026-4.png', w:255, h:340 },
+                { src: 'content/gallery/svarka2026-6.png', w:255, h:340 },
             ],
         },
         breadcrumbs: ['Главная', 'Новости', 'Металлообработка. Сварка-2026'],
