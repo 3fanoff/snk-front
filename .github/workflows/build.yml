@@ -24,20 +24,20 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
       - name: Build static files with Docker
         run: |
-          docker build --build-arg BASE_PATH="${{ env.GITHUB_PAGES_BASE_PATH }}" --target builder -t pvp-builder .
+          docker build --build-arg BASE_PATH="${{ steps.pages.outputs.base_url }}" --target builder -t pvp-builder .
           
           # Создаем контейнер и копируем dist
           docker create --name pvp-temp pvp-builder
           docker cp pvp-temp:/app/dist ./dist
           docker rm pvp-temp
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
