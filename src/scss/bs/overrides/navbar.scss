@@ -103,7 +103,6 @@
         &.active {
             color: var(--#{$prefix}navbar-active-color);
         }
-        &.active,
         &.show {
             &.dropdown-toggle {
                 padding-bottom: 0;

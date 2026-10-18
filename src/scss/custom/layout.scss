@@ -116,7 +116,7 @@ html {
             --#{$prefix}gutter-y: 0;
         }
 
-        &-thin ~ &-container {
+        &-thin ~ &-container:not(:last-child) {
             --#{$c-prefix}cont-bottom: #{rfs-value(60px)};
         }
     }

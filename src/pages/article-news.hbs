@@ -1,5 +1,7 @@
 {{#> layout/base-layout}}
 
+    <span class="layout-thin"></span>
+
     <section class="container layout-container">
         <h2 class="layout-title mb-5">ПВП СНК решает задачи промышленной столицы России</h2>
         <div class="layout-subtitle text-start">
@@ -9,16 +11,11 @@
                 <br>Наши решения для химанализа привлекли внимание многих специалистов, которые ищут и применяют современные технологии работы с металлом. Мы провели демонстрацию оборудования в рабочих условиях. Каждый желающий мог лично оценить скорость анализа и точность результатов прямо на выставке.
                 <br>Спасибо каждому, кто посетил наш стенд и поддержал нас своим интересом и доверием!</p>
         </div>
-
-        <hr class="my-5 border-0">
-
-        <div class="position-relative js-carousel-container">
-            {{> gallery-grid images=data.gallery isCarousel=true className="grid-gallery--v2 js-gallery"}}
-        </div>
-
-        <hr class="my-5 border-0">
-
-        {{> card-carousel-popular heading="Что мы показали?" box=true}}
     </section>
+
+    {{> gallery-grid-section images=data.gallery isCarousel=true className="grid-gallery--v2 js-gallery"}}
+
+    {{> card-carousel-popular heading="Что мы показали?" box=false}}
+
 
 {{/layout/base-layout}}
