@@ -43,6 +43,9 @@ module.exports = (env, argv) => {
             poll: 1000,
             ignored: /node_modules/,
         },
+        externals: {
+            ymaps3: 'ymaps3',
+        },
         module: {
             rules: [
                 {

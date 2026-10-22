@@ -93,18 +93,41 @@ document.addEventListener('DOMContentLoaded', () => {
         FetchIt.create(form, config);
     })
 
-    if (window.ymaps3) {
-        ymaps3.ready.then(() => {
-            Array.from(document.querySelectorAll('.js-yandex-map')).forEach((mapNode) => {
-                const map = new ymaps3.YMap(mapNode, {
+    Array.from(document.querySelectorAll('.js-yandex-map')).forEach((mapNode) => {
+        import('ymaps3').then((ymaps) => {
+            ymaps.import.registerCdn('https://cdn.jsdelivr.net/npm/{package}', [
+                '@yandex/ymaps3-default-ui-theme@0.0.25'
+            ]);
+
+            ymaps.ready.then(() => {
+                const map = new ymaps.YMap(mapNode, {
                     location: {
                         center: JSON.parse(mapNode.dataset.coords), // [55.752708, 37.668875],
                         zoom: 16,
                     },
                 });
 
-                map.addChild(new ymaps3.YMapDefaultSchemeLayer());
+                map.addChild(new ymaps.YMapDefaultSchemeLayer());
+
+                if (!mapNode.dataset.markers) return;
+
+                ymaps.import('@yandex/ymaps3-default-ui-theme').then((ymapsUi) => {
+                    map.addChild(new ymaps.YMapDefaultFeaturesLayer());
+
+                    const markers = JSON.parse(mapNode.dataset.markers);
+                    markers.forEach(markerData => {
+                        markerData.color = { day: '#3879ed', night: '#3879ed' };
+                        markerData.size = 'normal';
+                        markerData.iconName = 'fallback';
+                        markerData.staticHint = true;
+                        map.addChild(new ymapsUi.YMapDefaultMarker(markerData));
+                    });
+                }).finally(() => {
+                    import('./scss/externals/ymaps3.scss');
+                });
             });
-        });
-    }
+        })
+
+    });
+
 });
