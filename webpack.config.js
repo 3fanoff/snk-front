@@ -153,7 +153,8 @@ module.exports = (env, argv) => {
                     ],
                 },
                 {
-                    test: /\.(scss)$/i,
+                    test: /\.scss$/i,
+                    exclude: /\.inline\.scss$/,
                     use: [
                         isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
                         CSS_LOADER,
