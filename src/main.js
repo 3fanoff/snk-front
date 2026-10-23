@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         map.addChild(new ymapsUi.YMapDefaultMarker(markerData));
                     });
                 }).finally(() => {
-                    import('./scss/externals/ymaps3.scss');
+                    import('./scss/externals/ymaps3.inline.scss');
                 });
             });
         })

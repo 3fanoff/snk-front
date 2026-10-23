@@ -9,6 +9,27 @@ module.exports = (env, argv) => {
     const pages = require("./pages");
     const isProduction = argv.mode === 'production';
     const basePath = process.env.BASE_PATH ?? '/';
+    const CSS_LOADER = {
+        loader: 'css-loader',
+        options: {
+            sourceMap: !isProduction,
+            importLoaders: 1,
+        }
+    };
+    const SASS_LOADER = {
+        loader: "sass-loader",
+        options: {
+            sassOptions: {
+                quietDeps: true,
+                silenceDeprecations: [
+                    'mixed-decls',
+                    'color-functions',
+                    'global-builtin',
+                    'import'
+                ]
+            }
+        }
+    }
 
     pages.forEach(page => {
         page.basePath = basePath;
@@ -124,44 +145,26 @@ module.exports = (env, argv) => {
                     ]
                 },
                 {
+                    test: /\.inline\.(scss)/,
+                    use: [
+                        'style-loader',
+                        CSS_LOADER,
+                        SASS_LOADER,
+                    ],
+                },
+                {
                     test: /\.(scss)$/i,
                     use: [
                         isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
-                        {
-                            loader: 'css-loader',
-                            options: {
-                                sourceMap: !isProduction,
-                                importLoaders: 1,
-                            }
-                        },
-                        // Compiles Sass to CSS
-                        {
-                            loader: "sass-loader",
-                            options: {
-                                sassOptions: {
-                                    quietDeps: true,
-                                    silenceDeprecations: [
-                                        'mixed-decls',
-                                        'color-functions',
-                                        'global-builtin',
-                                        'import'
-                                    ]
-                                }
-                            }
-                        }
+                        CSS_LOADER,
+                        SASS_LOADER,
                     ],
                 },
                 {
                     test: /\.css$/,
                     use: [
                         'style-loader',
-                        {
-                            loader: 'css-loader',
-                            options: {
-                                sourceMap: true,
-                                importLoaders: 1, // количество лоадеров перед css-loader
-                            }
-                        }
+                        CSS_LOADER,
                     ]
                 }
             ]
