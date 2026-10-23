@@ -145,7 +145,7 @@ module.exports = (env, argv) => {
                     ]
                 },
                 {
-                    test: /\.inline\.(scss)/,
+                    test: /\.inline\.(scss)$/i,
                     use: [
                         'style-loader',
                         CSS_LOADER,
