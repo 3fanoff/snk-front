@@ -25,6 +25,8 @@
     }
 
     &__player {
+        --#{$c-prefix}play-btn-size: #{rfs-value(48px)};
+
         margin: 0 rfs-value(12px) rfs-value(48px);
     }
 
@@ -48,6 +50,8 @@
         }
 
         &__player {
+            --#{$c-prefix}play-btn-size: #{rfs-value(90px)};
+
             margin: rfs-value(80px) 0 rfs-value(100px);
         }
     }
