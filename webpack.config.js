@@ -121,7 +121,12 @@ module.exports = (env, argv) => {
                             if (pathData.filename.indexOf('/favicon.ico') >= 0) {
                                 return '[name][ext][query]';
                             }
-                            const filename = pathData.filename;
+                            let filename;
+                            if (/^\/?node_modules\//.test(pathData.filename)) {
+                                filename = pathData.filename.replace(/^\/?node_modules\//, '');
+                            } else {
+                                filename = pathData.filename;
+                            }
                             const relativePath = filename.replace(/^\/?src\//, '').split('/').slice(0, -1).join('/');
 
                             return relativePath + '/[name][ext][query]';
