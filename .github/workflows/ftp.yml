@@ -5,8 +5,8 @@ on:
     branches: ['prod']
 
 jobs:
-  SFTP-Deploy-Action:
-    name: SFTP-Deploy-Action
+  FTP-Deploy-Action:
+    name: FTP-Deploy-Action
     env:
       BASE_PATH: "/ui/"
     runs-on: ubuntu-latest
@@ -24,7 +24,7 @@ jobs:
       - name: Build
         run: npm run build
       - name: FTP-Deploy-Action
-        uses: SamKirkland/FTP-Deploy-Action@4.4.0
+        uses: SamKirkland/FTP-Deploy-Action@v4
         with:
           server: ${{ secrets.FTP_SERVER }}
           port: ${{ secrets.FTP_PORT }}
