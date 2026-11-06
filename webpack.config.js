@@ -4,10 +4,12 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 const CssMqpackerPlugin = require('css-mqpacker-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = (env, argv) => {
     const pages = require("./pages");
     const isProduction = argv.mode === 'production';
+    console.log('PRODUCTION:', isProduction);
     const basePath = process.env.BASE_PATH ?? '/';
     const CSS_LOADER = {
         loader: 'css-loader',
@@ -194,6 +196,17 @@ module.exports = (env, argv) => {
                 },
             },
             minimizer: [
+                isProduction ? new TerserPlugin({
+                    terserOptions: {
+                        compress: {
+                            drop_console: true,
+                        },
+                        format: {
+                            comments: false,
+                        },
+                    },
+                    extractComments: false,
+                }) : function () {},
                 new CssMqpackerPlugin({
                     sort: true
                 }),
