@@ -1,0 +1,36 @@
+name: Deploy static content on FTP folder
+
+on:
+  push:
+    branches: ['prod']
+
+jobs:
+  SFTP-Deploy-Action:
+    name: SFTP-Deploy-Action
+    env:
+      BASE_PATH: "/ui/"
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm install
+      - name: Build
+        run: npm run build
+      - name: FTP-Deploy-Action
+        uses: SamKirkland/FTP-Deploy-Action@4.4.0
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          port: ${{ secrets.FTP_PORT }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: www/pvpsnk_2/ui/
+          local-dir: dist/
+          exclude: |
+            **/*.html*
