@@ -5,6 +5,7 @@ const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 const CssMqpackerPlugin = require('css-mqpacker-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const ManifestPlugin = require('webpack-manifest-plugin').WebpackManifestPlugin;
 
 module.exports = (env, argv) => {
     const pages = require("./pages");
@@ -269,6 +270,36 @@ module.exports = (env, argv) => {
                     chunkFilename: '[id].[hash:10].css',
                 })
             ] : []
+        ).concat(
+            [
+                new ManifestPlugin({
+                    filter: (file) => {
+                        return file.isChunk
+                    },
+                    generate: (seed, files, entries) => {
+                        let output = {
+                            js: [],
+                            css: [],
+                        };
+                        const isJsFile = /\.js$/;
+                        const isCssFile = /\.css$/;
+
+                        files.forEach((file) => {
+                            if (file.isInitial && isJsFile.test(file.name)) {
+                                output.js.push(file.path);
+                                return;
+                            }
+
+                            if (isCssFile.test(file.name)) {
+                                output.css.push(file.path);
+                            }
+
+                        });
+                        return output;
+                    },
+                    removeKeyHash: /([a-f0-9]{10}\.?)/gi
+                })
+            ]
         ),
         devServer: {
             static: {
